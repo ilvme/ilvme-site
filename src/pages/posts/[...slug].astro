@@ -2,9 +2,10 @@
 import { getCollection, render } from 'astro:content'
 import MdLayout from '../../layouts/MdLayout.astro'
 import Prose from '../../components/post/Prose.astro'
+import { getAllPosts } from '../../libs/content-loader'
 
 export async function getStaticPaths() {
-  const posts = await getCollection('notes')
+  const posts = await getAllPosts()
   return posts.map((post) => ({
     params: { slug: post.id },
     props: { post },

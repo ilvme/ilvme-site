@@ -14,7 +14,7 @@ const allPosts = await getAllEssays()
     </PageHero>
 
     <main>
-      {allPosts.map((post) => <PostItem key={post.id} post={{ url: '/essays/' + post.id, ...post.data }} />)}
+      {allPosts.map((post) => <PostItem key={post.id} post={{ url: '/posts/' + post.id, ...post.data }} />)}
     </main>
   </div>
 </BaseLayout>
