@@ -2,16 +2,16 @@
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import PostItemArchive from '../../components/post/PostItemArchive.astro'
 import { getAllNotes } from '../../libs/content-loader'
+import PageHero from '../../components/post/PageHero.astro'
 
 const allPosts = await getAllNotes()
 ---
 
 <BaseLayout>
   <div>
-    <div class="mb-10">
-      <h1 class="text-3xl font-bold">技术笔记</h1>
+    <PageHero title="技术笔记">
       <p class="">共有 {allPosts.length} 篇文章。</p>
-    </div>
+    </PageHero>
 
     <main>
       {

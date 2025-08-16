@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
+import PageHero from '../../components/post/PageHero.astro'
 
 const allPosts = await getCollection('essays')
 
@@ -13,7 +14,8 @@ const tags = uniqueTags.map((tag) => ({
 ---
 
 <BaseLayout>
-  <h1 class="mb-6 text-2xl font-bold">Tags</h1>
+  <PageHero title="Tags" />
+
   <ul class="flex flex-wrap gap-2">
     {
       tags.map(({ label, count }) => (

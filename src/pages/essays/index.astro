@@ -2,16 +2,16 @@
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import PostItem from '../../components/post/PostItem.astro'
 import { getAllEssays } from '../../libs/content-loader'
+import PageHero from '../../components/post/PageHero.astro'
 
 const allPosts = await getAllEssays()
 ---
 
 <BaseLayout>
   <div>
-    <div class="mb-10">
-      <h1 class="text-3xl font-bold">随笔</h1>
+    <PageHero title="随笔">
       <p class="">共有 {allPosts.length} 篇文章。</p>
-    </div>
+    </PageHero>
 
     <main>
       {allPosts.map((post) => <PostItem key={post.id} post={{ url: '/essays/' + post.id, ...post.data }} />)}
