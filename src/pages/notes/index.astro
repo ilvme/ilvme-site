@@ -4,7 +4,7 @@ import PostItem from '../../components/post/PostItem.astro'
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import PostItemArchive from '../../components/post/PostItemArchive.astro'
 
-const allPosts = await getCollection('essays')
+const allPosts = await getCollection('notes')
 ---
 
 <BaseLayout>
@@ -17,7 +17,9 @@ const allPosts = await getCollection('essays')
     <main>
       {
         allPosts.map((post) => (
-          <PostItemArchive post={{ id: post.id, title: post.data.title, date: post.data.publishTime }} />
+          <PostItemArchive
+            post={{ id: post.id, url: '/notes/' + post.id, title: post.data.title, date: post.data.publishTime }}
+          />
         ))
       }
     </main>

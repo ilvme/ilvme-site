@@ -16,7 +16,9 @@ const allPosts = await getCollection('essays')
     <main>
       {
         allPosts.map((post) => (
-          <PostItemArchive post={{ id: post.id, title: post.data.title, date: post.data.publishTime }} />
+          <PostItemArchive
+            post={{ id: post.id, url: '/essays/' + post.id, title: post.data.title, date: post.data.publishTime }}
+          />
         ))
       }
     </main>
