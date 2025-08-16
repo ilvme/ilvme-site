@@ -1,16 +1,18 @@
-@import "tailwindcss";
-@import "./variables.css";
+@import 'tailwindcss';
+@import './variables.css';
+
+@theme {
+  --color-ink: var(--text-color);
+  --color-secondary: var(--text-color-secondary);
+}
 
 @plugin '@tailwindcss/typography';
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
-.prose {
-  max-width: 768px;
-}
 html {
   font-family:
-    "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei",
-    "WenQuanYi Micro Hei", Helvetica, Arial, sans-serif;
+    'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'Microsoft YaHei', 'WenQuanYi Micro Hei', Helvetica, Arial,
+    sans-serif;
   font-weight: normal;
   font-size: 16px;
   background-color: var(--bg-color);

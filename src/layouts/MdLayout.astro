@@ -16,5 +16,5 @@ const { frontmatter, headings } = Astro.props
 
   <slot />
 
-  <PostToc headings={headings} />
+  {headings.length > 0 && <PostToc headings={headings} />}
 </BaseLayout>
