@@ -1,0 +1,82 @@
+---
+import { getAllEssays } from '../../libs/content-loader'
+import PostItem from '../../components/post/PostItem.astro'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import PageHero from '../../components/post/PageHero.astro'
+export async function getStaticPaths({ paginate }) {
+  const posts = await getAllEssays()
+  return paginate(posts, { pageSize: 2 })
+}
+
+const { page } = Astro.props
+const { data, url, start, end, total, size, currentPage, lastPage } = page
+const { prev, next, current } = url
+
+const moreThanOnePage = total > 1
+---
+
+<main>
+  <BaseLayout>
+    <PageHero title="随笔" />
+
+    <section>
+      {data.map((post) => <PostItem key={post.id} post={{ url: '/posts/' + post.id, ...post.data }} />)}
+    </section>
+
+    {
+      moreThanOnePage && (
+        <div class="mt-10 flex justify-center gap-3">
+          {prev && (
+            <a href={prev} class="cursor-pointer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="100%"
+                height="100%"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-chevron-left h-6 w-6"
+              >
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+            </a>
+          )}
+
+          {[...Array(lastPage).keys()].map((e: number) => {
+            return (
+              <a
+                href={`/essays/${e + 1}/`}
+                class={`flex w-8 cursor-pointer items-center justify-center rounded-full transition duration-150 ease-in ${
+                  currentPage === e + 1 ? 'bg-gray-200' : 'text-default'
+                }`}
+              >
+                {e + 1}
+              </a>
+            )
+          })}
+          {next && (
+            <a href={next} class="cursor-pointer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="100%"
+                height="100%"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-chevron-right h-6 w-6"
+              >
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </a>
+          )}
+        </div>
+      )
+    }
+  </BaseLayout>
+</main>
