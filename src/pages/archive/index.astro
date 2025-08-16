@@ -1,15 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import PostItemArchive from '../../components/post/PostItemArchive.astro'
-import { getAllNotes } from '../../libs/content-loader'
+import { getAllPosts } from '../../libs/content-loader'
 
-const allPosts = await getAllNotes()
+const allPosts = await getAllPosts()
 ---
 
 <BaseLayout>
   <div>
-    <div class="mb-10">
-      <h1 class="text-3xl font-bold">技术笔记</h1>
+    <div class="mb-6">
+      <h1 class="text-3xl font-bold">归档</h1>
       <p class="">共有 {allPosts.length} 篇文章。</p>
     </div>
 
@@ -18,7 +18,7 @@ const allPosts = await getAllNotes()
         allPosts.map((post) => (
           <PostItemArchive
             key={post.id}
-            post={{ id: post.id, url: '/notes/' + post.id, title: post.data.title, date: post.data.date }}
+            post={{ url: `/${String(post.data.category).toLowerCase()}/${post.id}`, ...post.data }}
           />
         ))
       }

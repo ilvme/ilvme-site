@@ -1,16 +1,24 @@
 ---
-import { formatDate } from '../../utils/support'
+import { formatDate } from '../../libs/support'
 const post = Astro.props.post
 console.log(post)
 ---
 
 <div class="mb-3 block last:mb-0">
-  <div class="flex gap-3">
-    <h2 class="flex-1">
+  <div class={`flex gap-3 before:content-['${post.category}']`}>
+    <h2 class="relative flex-1">
+      {
+        post.category === 'Notes' ? (
+          <span class="absolute -left-12 rounded bg-[#f6f6f7] px-1 py-0.5 text-xs text-gray-400">技术</span>
+        ) : (
+          ''
+        )
+      }
+
       <a href={post.url} class="underline-offset-4 hover:underline">
         {post.title}
       </a>
     </h2>
-    <div class="text-secondary shrink-0 text-sm leading-6">{formatDate(post.publishTime)}</div>
+    <div class="text-secondary shrink-0 text-sm leading-6">{formatDate(post.date)}</div>
   </div>
 </div>

@@ -1,9 +1,9 @@
 ---
-import { getCollection } from 'astro:content'
 import BaseLayout from '../../layouts/BaseLayout.astro'
-import PostItemArchive from '../../components/post/PostItemArchive.astro'
+import PostItem from '../../components/post/PostItem.astro'
+import { getAllEssays } from '../../libs/content-loader'
 
-const allPosts = await getCollection('essays')
+const allPosts = await getAllEssays()
 ---
 
 <BaseLayout>
@@ -14,13 +14,7 @@ const allPosts = await getCollection('essays')
     </div>
 
     <main>
-      {
-        allPosts.map((post) => (
-          <PostItemArchive
-            post={{ id: post.id, url: '/essays/' + post.id, title: post.data.title, date: post.data.publishTime }}
-          />
-        ))
-      }
+      {allPosts.map((post) => <PostItem key={post.id} post={{ url: '/essays/' + post.id, ...post.data }} />)}
     </main>
   </div>
 </BaseLayout>
