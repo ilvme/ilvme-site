@@ -1,0 +1,38 @@
+---
+
+---
+
+<button
+  id="back-to-top"
+  class=":hover:cursor-pointer fixed right-8 bottom-8 p-2 text-rose-700 opacity-0 transition-opacity duration-300 hover:scale-125"
+  aria-label="回到顶部"
+>
+  回到顶部
+</button>
+
+<script>
+  const backToTopButton = document.getElementById('back-to-top')
+
+  // 滚动到顶部
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+  }
+
+  // 显示/隐藏按钮
+  function toggleBackToTopButton() {
+    if (window.scrollY > 300) {
+      backToTopButton?.classList.remove('opacity-0')
+      backToTopButton?.classList.add('opacity-100')
+    } else {
+      backToTopButton?.classList.remove('opacity-100')
+      backToTopButton?.classList.add('opacity-0')
+    }
+  }
+
+  // 添加事件监听器
+  backToTopButton?.addEventListener('click', scrollToTop)
+  window.addEventListener('scroll', toggleBackToTopButton)
+</script>

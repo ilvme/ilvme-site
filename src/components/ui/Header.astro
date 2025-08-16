@@ -1,0 +1,29 @@
+---
+import SiteConfig from '../../ilvme.config'
+import ThemeToggle from './ThemeToggle.astro'
+
+const navs = [
+  { name: '随笔', link: '/essays/' },
+  { name: '说说', link: '/words/' },
+  { name: '技术笔记', link: '/notes/' },
+  { name: '标签', link: '/tags/' },
+  { name: '朋友', link: '/friends/' },
+]
+---
+
+<header class="mb-8 flex items-center justify-between gap-1.5 pb-8">
+  <h1 class="text-xl font-bold">
+    <a href="/public">{SiteConfig.title}</a>
+  </h1>
+
+  <div class="flex gap-4">
+    {
+      navs.map((nav) => (
+        <a href={nav.link} class="underline-offset-4 hover:underline">
+          {nav.name}
+        </a>
+      ))
+    }
+    <ThemeToggle />
+  </div>
+</header>

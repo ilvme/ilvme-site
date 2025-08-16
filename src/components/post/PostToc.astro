@@ -1,0 +1,24 @@
+---
+const headings = Astro.props.headings;
+---
+
+<div
+  class="fixed right-8 top-18 pr-6 max-w-[20em] max-h-[calc(95vh-10rem)] overflow-y-auto max-xl:hidden"
+>
+  <b class="text-rose-700 text-lg">ㆆᵕㆆ…</b>
+  <div class="space-y-1 font-light mt-1">
+    {
+      headings.map((heading) => (
+        <div class={`${heading.depth > 2 ? "ml-4" : ""}`}>
+          <span class="text-rose-700">#</span>
+          <a
+            href={`#${heading.slug}`}
+            class="hover:text-[var(--link-color)] break-words whitespace-normal"
+          >
+            {heading.text}
+          </a>
+        </div>
+      ))
+    }
+  </div>
+</div>

@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { getCollection } from 'astro:content'
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('essays')
+  console.log(allPosts)
+  const uniqueTags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())]
+  return {
+    params: {
+      tags: uniqueTags,
+    },
+  }
+}
+
+const { tags } = Astro.params
+console.log(tags)
+---
+
+<BaseLayout>
+  <h1>Tags</h1>
+  <ul>
+    <!--{-->
+    <!--  tags.map((tag) => (-->
+    <!--    <li>-->
+    <!--      <a href={`/essays/tags/${tag}`}>{tag}</a>-->
+    <!--    </li>-->
+    <!--  ))-->
+    <!--}-->
+  </ul>
+</BaseLayout>

@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content'
+import PostItem from '../../components/post/PostItem.astro'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import PostItemArchive from '../../components/post/PostItemArchive.astro'
+
+const allPosts = await getCollection('essays')
+---
+
+<BaseLayout>
+  <div>
+    <div class="mb-10">
+      <h1 class="text-3xl font-bold">技术笔记</h1>
+      <p class="">共有 {allPosts.length} 篇文章。</p>
+    </div>
+
+    <main>
+      {
+        allPosts.map((post) => (
+          <PostItemArchive post={{ id: post.id, title: post.data.title, date: post.data.publishTime }} />
+        ))
+      }
+    </main>
+  </div>
+</BaseLayout>

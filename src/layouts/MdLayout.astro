@@ -1,0 +1,20 @@
+---
+import BaseLayout from './BaseLayout.astro'
+import { formatDate } from '../utils/support'
+import PostToc from '../components/post/PostToc.astro'
+const { frontmatter, headings } = Astro.props
+---
+
+<BaseLayout headerHidden={true}>
+  <h1 class="mb-2 text-4xl font-bold">{frontmatter.title}</h1>
+
+  <div class="mb-10 flex items-center gap-2">
+    <span class="">{formatDate(frontmatter.publishTime)}</span>
+
+    {frontmatter.tags.map((tag: string) => <a href={`/tags/${tag}`}>#{tag}</a>)}
+  </div>
+
+  <slot />
+
+  <PostToc headings={headings} />
+</BaseLayout>

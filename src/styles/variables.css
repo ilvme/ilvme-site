@@ -1,0 +1,23 @@
+:root {
+  --bg-color: #fff;
+  --text-color: #222;
+  --text-color-primary: #b80029;
+  --text-color-secondary: #555;
+  --link-color: #65847e;
+
+  /*代码相关*/
+  --color-code-inline: #ff496b;
+  --color-code-inline-bg: #e8e9e6;
+}
+
+.dark {
+  --bg-color: #000;
+  --text-color: #cdcdcd;
+  --text-color-primary: #b80029;
+  --text-color-secondary: #aaa;
+  --link-color: #83b1a8;
+
+  /*代码相关*/
+  --color-code-inline: #ff496b;
+  --color-code-inline-bg: #232322;
+}

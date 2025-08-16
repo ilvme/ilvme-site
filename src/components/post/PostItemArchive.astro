@@ -1,0 +1,16 @@
+---
+import { formatDate } from '../../utils/support'
+const post = Astro.props.post
+console.log(post)
+---
+
+<div class="mb-3 block last:mb-0">
+  <div class="flex gap-3">
+    <h2 class="flex-1">
+      <a href={'/essays/' + post.id} class="underline-offset-4 hover:underline">
+        {post.title}
+      </a>
+    </h2>
+    <div class="text-secondary shrink-0 text-sm leading-6">{formatDate(post.publishTime)}</div>
+  </div>
+</div>
