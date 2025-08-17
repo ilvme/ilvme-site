@@ -8,20 +8,11 @@ const allPosts = await getAllPosts()
 ---
 
 <BaseLayout>
-  <div>
-    <PageHero title="归档">
-      <p class="">共有 {allPosts.length} 篇文章。</p>
-    </PageHero>
+  <PageHero title="归档">
+    <p class="">共有 {allPosts.length} 篇文章。</p>
+  </PageHero>
 
-    <main>
-      {
-        allPosts.map((post) => (
-          <PostItemArchive
-            key={post.id}
-            post={{ url: `/${String(post.data.category).toLowerCase()}/${post.id}`, ...post.data }}
-          />
-        ))
-      }
-    </main>
-  </div>
+  <main>
+    {allPosts.map((post) => <PostItemArchive key={post.id} post={{ url: `/posts/${post.id}`, ...post.data }} />)}
+  </main>
 </BaseLayout>

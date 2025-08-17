@@ -10,3 +10,9 @@ export interface PostMeta {
 export interface Post extends PostMeta {
   content: string
 }
+
+export interface Metadata {
+  title?: string
+  description?: string
+  icon?: string
+}

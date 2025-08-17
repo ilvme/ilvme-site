@@ -4,6 +4,8 @@ import Header from '../components/ui/Header.astro'
 import BackToTop from '../components/ui/BackToTop.astro'
 import Footer from '../components/ui/Footer.astro'
 import SiteConfig from '../ilvme.config'
+
+const { title = SiteConfig.title, description = SiteConfig.description, icon } = Astro.props
 ---
 
 <!doctype html>
@@ -12,9 +14,10 @@ import SiteConfig from '../ilvme.config'
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate" type="application/rss+xml" title={SiteConfig.title} href={new URL('rss.xml', Astro.site)} />
+    <link rel="alternate" type="application/rss+xml" title={title} href={new URL('rss.xml', Astro.site)} />
     <meta name="generator" content={Astro.generator} />
-    <title>林深时觉寒的博客</title>
+    <meta name="description" content={description} />
+    <title>{title}</title>
   </head>
   <body>
     <main class="m-auto max-w-[768px] pt-8">
@@ -23,8 +26,7 @@ import SiteConfig from '../ilvme.config'
       <slot />
 
       <Footer />
+      <BackToTop />
     </main>
-
-    <BackToTop />
   </body>
 </html>

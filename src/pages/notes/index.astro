@@ -8,20 +8,11 @@ const allPosts = await getAllNotes()
 ---
 
 <BaseLayout>
-  <div>
-    <PageHero title="技术笔记">
-      <p class="">共有 {allPosts.length} 篇文章。</p>
-    </PageHero>
+  <PageHero title="技术笔记">
+    <p class="">共有 {allPosts.length} 篇文章。</p>
+  </PageHero>
 
-    <main>
-      {
-        allPosts.map((post) => (
-          <PostItemArchive
-            key={post.id}
-            post={{ id: post.id, url: '/posts/' + post.id, title: post.data.title, date: post.data.date }}
-          />
-        ))
-      }
-    </main>
-  </div>
+  <main>
+    {allPosts.map((post) => <PostItemArchive key={post.id} post={{ url: '/posts/' + post.id, ...post.data }} />)}
+  </main>
 </BaseLayout>

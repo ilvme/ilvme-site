@@ -2,9 +2,11 @@
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import { getCollection } from 'astro:content'
 import PostItemArchive from '../../components/post/PostItemArchive.astro'
+import { getAllPosts } from '../../libs/content-loader'
+import PageHero from '../../components/post/PageHero.astro'
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection('essays')
+  const allPosts = await getAllPosts()
 
   const uniqueTags = [...new Set(allPosts.flatMap((post: any) => post.data.tags))]
 
@@ -22,13 +24,11 @@ const { posts } = Astro.props
 ---
 
 <BaseLayout>
-  <h1 class="mb-6 text-2xl font-bold">#{tag}</h1>
+  <PageHero title={'#' + tag} />
 
   {
     posts.map((post) => (
-      <PostItemArchive
-        post={{ id: post.id, url: '/essays/' + post.id, title: post.data.title, date: post.data.date }}
-      />
+      <PostItemArchive post={{ id: post.id, url: '/posts/' + post.id, title: post.data.title, date: post.data.date }} />
     ))
   }
 </BaseLayout>
