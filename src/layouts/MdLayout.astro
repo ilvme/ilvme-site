@@ -3,17 +3,24 @@ import BaseLayout from './BaseLayout.astro'
 import { formatDate } from '../libs/support'
 import PostToc from '../components/post/PostToc.astro'
 import PageHero from '../components/post/PageHero.astro'
+import TagLite from '../components/post/TagLite.astro'
+import Prose from '../components/post/Prose.astro'
 const { frontmatter, headings } = Astro.props
 ---
 
 <BaseLayout title={frontmatter.title} description={frontmatter.description}>
+  <!-- 标题 -->
   <PageHero title={frontmatter.title}>
-    <span class="">{formatDate(frontmatter.date)}</span>
+    <span class="text-secondary">{formatDate(frontmatter.date)}</span>
 
-    {frontmatter.tags.map((tag: string) => <a href={`/tags/${tag}`}>#{tag}</a>)}
+    {frontmatter.tags.map((tag: string) => <TagLite tag={tag} />)}
   </PageHero>
 
-  <slot />
+  <!-- 正文 -->
+  <Prose>
+    <slot />
+  </Prose>
 
+  <!-- 目录 -->
   {headings.length > 0 && <PostToc headings={headings} />}
 </BaseLayout>

@@ -1,0 +1,10 @@
+---
+const { tag, count } = Astro.props
+---
+
+<a
+  href={`/tags/${tag}`}
+  class="inline-block rounded bg-gray-100 px-2 text-sm transition-all duration-200 ease-in-out hover:bg-gray-200"
+>
+  #{tag} ({count})
+</a>
