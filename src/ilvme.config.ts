@@ -1,5 +1,5 @@
 const SiteConfig = {
-  title: '林深时觉寒',
+  title: '和光同尘',
   description: '林深时觉寒的个人网站',
   author: '林深时觉寒',
   lang: `zh-CN`,

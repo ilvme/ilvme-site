@@ -15,7 +15,10 @@
 
 这个网站记录了一些我的 [日常随笔](/essays)、[技术笔记](/notes)，以及偶尔也会发发的 [牢骚](/words)。
 
+最近 AI 的风终究是吹到了这里，借助 <a href="https://www.trae.cn/" target="_blank" rel="noopener noreferrer">Trae</a> 整了个 
+<a href="https://hot.ikangjia.cn" target="_blank" rel="noopener noreferrer">新闻热点</a> 聚合网页，
+我一个 Next.js 小白从搭建项目到部署几乎未写一行逻辑性代码 ...
+
 ## 联系我
 
-- [邮箱](mailto:ikangjia.cn@outlook.com)
-- [GitHub](https://github.com/ilvme)
+如果你有什么想说的想聊的，欢迎发送邮件联系我：ikangjia.cn#outlook.com
