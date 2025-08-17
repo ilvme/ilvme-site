@@ -1,5 +1,5 @@
 const SiteConfig = {
-  title: '聪明的墨菲特',
+  title: '和光同尘',
   description: 'ilvme',
   author: '林深时觉寒',
   siteUrl: 'https://ilvme.com',
@@ -7,7 +7,7 @@ const SiteConfig = {
     twitter: 'ilvme',
   },
   icon: 'src/images/icon.png',
-  keywords: ['ilvme', 'ilvme.com', 'ilvme.site'],
+  // keywords: ['ilvme', 'ilvme.com', 'ilvme.site'],
 
   themeConfig: {
     pageSize: 4,

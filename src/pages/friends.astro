@@ -1,8 +1,28 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import PageHero from '../components/post/PageHero.astro'
+
+import friends from '../content/friends'
 ---
 
-<BaseLayout>
+<BaseLayout title="友情链接" icon="✨">
   <PageHero title="友情链接" />
+
+  <ul>
+    {
+      friends.map((friend) => (
+        <li class="flex items-baseline gap-3 pt-1.5">
+          <a href={friend.url} target="_blank" class="underline underline-offset-4">
+            {friend.name}
+          </a>
+          {friend.description && <span class="text-sm text-gray-500">/ {friend.description}</span>}
+        </li>
+      ))
+    }
+  </ul>
+
+  <p class="mt-10">
+    欢迎与我交换友链！
+    <!--<a href="mailto:<EMAIL>" class="underline underline-offset-4">Mail</a>-->
+  </p>
 </BaseLayout>

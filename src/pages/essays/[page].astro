@@ -18,7 +18,7 @@ const moreThanOnePage = total > 1
 
 <main>
   <BaseLayout>
-    <PageHero title="随笔" />
+    <PageHero title="随笔"> 人穷龌龊事，尽揽一箩筐 </PageHero>
 
     <section>
       {data.map((post) => <PostItem key={post.id} post={{ url: '/posts/' + post.id, ...post.data }} />)}
