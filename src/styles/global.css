@@ -18,3 +18,26 @@ html {
   background-color: var(--bg-color);
   color: var(--text-color);
 }
+
+/* 定义滚动条的宽度和背景颜色 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 8px;
+  background-color: inherit;
+}
+
+/* 定义滚动条轨道的样式，包括内阴影和圆角 */
+::-webkit-scrollbar-track {
+  background-color: inherit;
+}
+
+/* 定义滑块的样式，包括圆角和内阴影 */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #eee;
+}
+
+/* 定义滑块在鼠标悬停时的样式 */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #939393;
+}
