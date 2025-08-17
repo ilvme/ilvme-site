@@ -1,3 +1,4 @@
 ---
-return Astro.redirect('/essays/1')
+console.log(Astro.url)
+return Astro.rewrite(Astro.url.pathname + 1)
 ---

@@ -13,7 +13,7 @@ const { page } = Astro.props
 const { data, url, start, end, total, size, currentPage, lastPage } = page
 const { prev, next, current } = url
 
-const moreThanOnePage = total > 1
+const moreThanOnePage = lastPage > 1
 ---
 
 <main>
