@@ -1,4 +1,9 @@
 ---
-console.log(Astro.url)
-return Astro.rewrite(Astro.url.pathname + 1)
+// Rewrite to /1
+// 注意此处无法使用 Astro.redirect('/essays/1')，
+// 因为部署在 Vercel 后点击跳转时会显示出 redirect 中间页面，原因未知
+
+// 下方代码在访问 /essays 时 404
+// return Astro.rewrite(Astro.url.pathname + 1)
+return Astro.rewrite('/essays/1')
 ---

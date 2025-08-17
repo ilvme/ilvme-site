@@ -26,9 +26,5 @@ const { posts } = Astro.props
 <BaseLayout>
   <PageHero title={'#' + tag} />
 
-  {
-    posts.map((post) => (
-      <PostItemArchive post={{ id: post.id, url: '/posts/' + post.id, title: post.data.title, date: post.data.date }} />
-    ))
-  }
+  {posts.map((post) => <PostItemArchive post={{ url: '/posts/' + post.id, ...post.data }} />)}
 </BaseLayout>

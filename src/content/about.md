@@ -13,12 +13,9 @@
 
 网站使用 [Astro](https://astro.build/) 驱动，[Vercel](https://vercel.com/) 托管，Notion 作为 CMS。代码已开源：[ilvme/ilvme-site]()。
 
-这个网站记录了一些我的 [日常随笔]()、[技术笔记]()，以及偶尔也会发发的 [牢骚]()。
+这个网站记录了一些我的 [日常随笔](/essays)、[技术笔记](/notes)，以及偶尔也会发发的 [牢骚](/words)。
 
 ## 联系我
 
 - [邮箱](mailto:ikangjia.cn@outlook.com)
 - [GitHub](https://github.com/ilvme)
-
-## And..
-祝你开心 (^ ^)-☆
