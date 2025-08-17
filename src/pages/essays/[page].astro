@@ -3,9 +3,10 @@ import { getAllEssays } from '../../libs/content-loader'
 import PostItem from '../../components/post/PostItem.astro'
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import PageHero from '../../components/post/PageHero.astro'
+import SiteConfig from '../../ilvme.config'
 export async function getStaticPaths({ paginate }) {
   const posts = await getAllEssays()
-  return paginate(posts, { pageSize: 2 })
+  return paginate(posts, { pageSize: SiteConfig.themeConfig.pageSize })
 }
 
 const { page } = Astro.props

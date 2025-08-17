@@ -8,6 +8,10 @@ const SiteConfig = {
   },
   icon: 'src/images/icon.png',
   keywords: ['ilvme', 'ilvme.com', 'ilvme.site'],
+
+  themeConfig: {
+    pageSize: 4,
+  },
 }
 
 export default SiteConfig

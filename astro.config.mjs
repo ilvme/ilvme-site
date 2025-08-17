@@ -1,11 +1,28 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from 'astro/config'
 
-import tailwindcss from '@tailwindcss/vite';
+import tailwindcss from '@tailwindcss/vite'
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://v4.ikangjia.cn',
+  // output: 'static',
+  // integrations: [],
+
+  server: {
+    port: 4321,
+    open: true,
+  },
+
   vite: {
-    plugins: [tailwindcss()]
-  }
-});
+    plugins: [tailwindcss()],
+  },
+  markdown: {
+    shikiConfig: {
+      themes: {
+        // light: 'github-light',
+        // dark: 'github-dark',
+      },
+    },
+  },
+})
