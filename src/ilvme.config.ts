@@ -1,16 +1,17 @@
 const SiteConfig = {
-  title: '和光同尘',
-  description: 'ilvme',
+  title: '林深时觉寒',
+  description: '林深时觉寒的个人网站',
   author: '林深时觉寒',
-  siteUrl: 'https://ilvme.com',
+  lang: `zh-CN`,
+  siteUrl: 'https://v4.ikangjia.cn',
   social: {
-    twitter: 'ilvme',
+    // twitter: 'ilvme',
   },
-  icon: 'src/images/icon.png',
+  // icon: 'src/images/icon.png',
   // keywords: ['ilvme', 'ilvme.com', 'ilvme.site'],
 
   themeConfig: {
-    pageSize: 4,
+    pageSize: 7,
   },
 }
 

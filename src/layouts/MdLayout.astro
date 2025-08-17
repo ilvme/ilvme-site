@@ -17,9 +17,7 @@ const { frontmatter, headings } = Astro.props
   </PageHero>
 
   <!-- 正文 -->
-  <Prose>
-    <slot />
-  </Prose>
+  <Prose><slot /> </Prose>
 
   <!-- 目录 -->
   {headings.length > 0 && <PostToc headings={headings} />}
