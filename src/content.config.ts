@@ -9,7 +9,7 @@ const essays = defineCollection({
     slug: z.string(),
     published: z.boolean(),
     date: z.date(),
-    description: z.string(),
+    description: z.union([z.string(), z.undefined(), z.null()]),
     tags: z.array(z.string()),
     category: z.string(),
   }),

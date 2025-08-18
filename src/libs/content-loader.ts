@@ -25,8 +25,16 @@ export async function getAllNotes() {
 }
 
 export async function getAllTags() {
-  const essays = await getCollection('essays')
-  console.log(essays.length)
+  const allPosts = await getCollection('posts')
+
+  const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())]
+
+  const tagMap = uniqueTags.map((tag) => ({
+    label: tag,
+    count: allPosts.filter((post) => post.data.tags.includes(tag)).length,
+  }))
+
+  return tagMap.sort((a, b) => b.count - a.count)
 }
 
 export async function getPostsByTag() {

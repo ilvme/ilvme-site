@@ -26,7 +26,7 @@ html {
 
 /* 定义滚动条的宽度和背景颜色 */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
   height: 8px;
   background-color: inherit;
 }
@@ -39,7 +39,7 @@ html {
 /* 定义滑块的样式，包括圆角和内阴影 */
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: #eee;
+  background-color: #f5f3f3;
 }
 
 /* 定义滑块在鼠标悬停时的样式 */

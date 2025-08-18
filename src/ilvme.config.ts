@@ -11,7 +11,7 @@ const SiteConfig = {
   // keywords: ['ilvme', 'ilvme.com', 'ilvme.site'],
 
   themeConfig: {
-    pageSize: 3,
+    pageSize: 7,
   },
 }
 
