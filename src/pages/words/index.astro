@@ -23,21 +23,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import PageHero from '../../components/post/PageHero.astro'
 import Decorating from '../../components/ui/Decorating.astro'
-import { getAllPosts1 } from '../../libs/notion/support'
-import { convertWithMedia } from '../../libs/notion/fetch-posts'
-
-const ps = await getAllPosts1('1a5c485ef35680c0a8e1d353b5bfc864')
-const posts = ps.filter((p) => p.slug)
-
-const startTime = Date.now()
-// posts.map(async (p) => {
-//   await convertWithMedia(p)
-// })
-// await convertWithMedia(posts[0])
-
-const endTime = Date.now()
-
-console.log(`===数据: [${posts.length}]===总耗时（s）: `, (endTime - startTime) / 1000)
 ---
 
 <BaseLayout>
