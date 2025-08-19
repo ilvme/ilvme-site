@@ -3,16 +3,16 @@ import { z, defineCollection } from 'astro:content'
 
 const essays = defineCollection({
   loader: glob({ base: './src/content/posts/essays', pattern: '**/*.{md,mdx}' }),
-  schema: z.object({
-    title: z.string(),
-    type: z.string(),
-    slug: z.string(),
-    published: z.boolean(),
-    date: z.date(),
-    description: z.union([z.string(), z.undefined(), z.null()]),
-    tags: z.array(z.string()),
-    category: z.string(),
-  }),
+  // schema: z.object({
+  //   title: z.string(),
+  //   type: z.string(),
+  //   slug: z.string(),
+  //   published: z.boolean(),
+  //   date: z.date(),
+  //   description: z.union([z.string(), z.undefined(), z.null()]),
+  //   tags: z.array(z.string()),
+  //   category: z.string(),
+  // }),
 })
 
 const notes = defineCollection({

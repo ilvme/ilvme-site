@@ -15,7 +15,7 @@ export async function fetchAllPosts(databaseId: string): Promise<PostMeta[]> {
       filter: {
         and: [
           { property: 'status', select: { equals: 'Published' } },
-          { property: 'type', select: { equals: 'Post' } },
+          // { property: 'type', select: { equals: 'Post' } },
         ],
       },
       sorts: [{ property: 'date', direction: 'descending' }],
@@ -33,26 +33,41 @@ export async function fetchAllPosts(databaseId: string): Promise<PostMeta[]> {
   return posts
 }
 
+export async function updateLastFetchedTime(pageId: string, lastFetchedTime: string): Promise<void> {
+  await notion.pages.update({
+    page_id: pageId,
+    properties: {
+      last_fetched_time: {
+        date: {
+          start: lastFetchedTime,
+        },
+      },
+    },
+  })
+}
+
 function extractPostMeta(page: PageObjectResponse): PostMeta {
   const properties = page.properties
 
   return {
-    notion_page_id: page.id,
     title: parseTextProperty(properties.title),
-    category: parseSelectProperty(properties.category),
     type: parseSelectProperty(properties.type),
     status: parseSelectProperty(properties.status),
-    tags: parseMultiSelectProperty(properties.tags),
-    date: parseDateProperty(properties.date),
     slug: parseTextProperty(properties.slug),
+    date: parseDateProperty(properties.date),
     summary: parseTextProperty(properties.summary),
-    last_edited_time: page.last_edited_time,
-    blog_last_fetched_time: parseDateProperty(properties.blog_last_fetched_time),
+    category: parseSelectProperty(properties.category),
+    tags: parseMultiSelectProperty(properties.tags),
     icon: parsePageIcon(page),
+    cover: parsePageCover(page),
+
+    last_edited_time: page.last_edited_time,
+    last_fetched_time: parseDateProperty(properties.last_fetched_time),
+    notion_page_id: page.id,
   }
 }
 
-export const parseTextProperty = (prop: any): string => {
+const parseTextProperty = (prop: any): string => {
   if (!prop) return ''
   if (prop.type === 'title') {
     return prop.title.map((text: any) => text.plain_text).join('')
@@ -63,19 +78,23 @@ export const parseTextProperty = (prop: any): string => {
   return ''
 }
 
-export const parseSelectProperty = (prop: any): string => {
+const parseSelectProperty = (prop: any): string => {
   return prop?.select?.name || ''
 }
 
-export const parseMultiSelectProperty = (prop: any): string[] => {
+const parseMultiSelectProperty = (prop: any): string[] => {
   return prop?.multi_select?.map((item: any) => item.name) || []
 }
 
-export const parseDateProperty = (prop: any): string => {
+const parseDateProperty = (prop: any): string => {
   return prop?.date?.start || ''
 }
 
 // 提取页面 emoji 图标
-export const parsePageIcon = (page: PageObjectResponse): string | undefined => {
+const parsePageIcon = (page: PageObjectResponse): string | undefined => {
   return page.icon?.type === 'emoji' ? (page.icon.emoji as string) : undefined
+}
+
+const parsePageCover = (page: PageObjectResponse): string | undefined => {
+  return page.cover?.type === 'external' ? (page.cover.external.url as string) : undefined
 }

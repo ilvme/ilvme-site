@@ -1,19 +1,20 @@
 ---
 # 文章元数据
 title: 'axiba' # 标题
-type: 'Post' # 类型 Essays | Notes
+type: 'Post' # 类型 Posts
 slug: '2016-summary' # slug
+status: true # 状态 Published | Draft | Private
+icon: '🔍'
+
 category: 'Essays' #  分类 Essays | Mess | Thoughts | Poetry
 tags: ['精选', '年终总结'] # 标签
 date: 2016-12-31 # 发表时间
-description: '我的第一篇年度总结。' #  摘要
-published: true # 状态 Published | Draft | Private
+summary: '我的第一篇年度总结。' #  摘要
 
 # 其他
-#icon: '🔍'
-#notion_page_id: 'a65902e3-cfbd-4bf3-8980-bd1b2624681e' # notion page id
-#last_edited_time: '2025-08-06T03:21:00.000Z' # 最后修改时间，该值取自 notion 的最后修改时间
-#last_fetched_time: '2025-08-06T06:21:32.133Z' # 最后抓取时间，该值为文章最后抓取时间
+last_edited_time: '2025-08-06T03:21:00.000Z' # 最后修改时间，该值取自 notion 的最后修改时间
+last_fetched_time: '2025-08-06T06:21:32.133Z' # 最后抓取时间，该值为文章最后抓取时间
+notion_page_id: 'a65902e3-cfbd-4bf3-8980-bd1b2624681e' # notion page id
 ---
 
 ## 关于

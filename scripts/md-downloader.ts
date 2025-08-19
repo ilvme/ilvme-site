@@ -5,9 +5,7 @@ import { MdxRendererCustomizer } from './mdx-renderer-customizer.ts'
 import { notion } from './notion-fetcher.ts'
 import type { PostMeta } from './types.ts'
 
-// const pageId = '1cfc485ef35680c88b8ee24215573da3'
-
-export async function convertWithMedia(postMeta: PostMeta, outputDir: string = './src/content_for_test') {
+export async function convertWithMedia(postMeta: PostMeta, outputDir: string = 'src/content_for_test') {
   try {
     const { notion_page_id: pageId, slug, title } = postMeta
 
@@ -27,7 +25,7 @@ export async function convertWithMedia(postMeta: PostMeta, outputDir: string = '
       .withExporter(
         new DefaultExporter({
           outputType: 'file',
-          outputPath: path.join(realPath, `index.md`),
+          outputPath: path.join(realPath, `index.mdx`),
         })
       )
       // 配置媒体下载
