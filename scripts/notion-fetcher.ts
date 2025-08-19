@@ -1,4 +1,4 @@
-import type { PostMeta } from '../types.ts'
+import type { PostMeta } from './types.ts'
 import { Client, type PageObjectResponse } from '@notionhq/client'
 
 export const notion = new Client({
@@ -38,21 +38,21 @@ function extractPostMeta(page: PageObjectResponse): PostMeta {
 
   return {
     notion_page_id: page.id,
-    title: getTextProperty(properties.title),
-    category: getSelectProperty(properties.category),
-    type: getSelectProperty(properties.type),
-    status: getSelectProperty(properties.status),
-    tags: getMultiSelectProperty(properties.tags),
-    date: getDateProperty(properties.date),
-    slug: getTextProperty(properties.slug),
-    summary: getTextProperty(properties.summary),
+    title: parseTextProperty(properties.title),
+    category: parseSelectProperty(properties.category),
+    type: parseSelectProperty(properties.type),
+    status: parseSelectProperty(properties.status),
+    tags: parseMultiSelectProperty(properties.tags),
+    date: parseDateProperty(properties.date),
+    slug: parseTextProperty(properties.slug),
+    summary: parseTextProperty(properties.summary),
     last_edited_time: page.last_edited_time,
-    blog_last_fetched_time: getDateProperty(properties.blog_last_fetched_time),
-    icon: getPageIcon(page),
+    blog_last_fetched_time: parseDateProperty(properties.blog_last_fetched_time),
+    icon: parsePageIcon(page),
   }
 }
 
-export const getTextProperty = (prop: any): string => {
+export const parseTextProperty = (prop: any): string => {
   if (!prop) return ''
   if (prop.type === 'title') {
     return prop.title.map((text: any) => text.plain_text).join('')
@@ -63,19 +63,19 @@ export const getTextProperty = (prop: any): string => {
   return ''
 }
 
-export const getSelectProperty = (prop: any): string => {
+export const parseSelectProperty = (prop: any): string => {
   return prop?.select?.name || ''
 }
 
-export const getMultiSelectProperty = (prop: any): string[] => {
+export const parseMultiSelectProperty = (prop: any): string[] => {
   return prop?.multi_select?.map((item: any) => item.name) || []
 }
 
-export const getDateProperty = (prop: any): string => {
+export const parseDateProperty = (prop: any): string => {
   return prop?.date?.start || ''
 }
 
 // 提取页面 emoji 图标
-export const getPageIcon = (page: PageObjectResponse): string | undefined => {
+export const parsePageIcon = (page: PageObjectResponse): string | undefined => {
   return page.icon?.type === 'emoji' ? (page.icon.emoji as string) : undefined
 }

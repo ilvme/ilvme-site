@@ -14,21 +14,3 @@ export interface PostMeta {
   notion_page_id: string
   icon?: string
 }
-
-export interface Post extends PostMeta {
-  content: string
-}
-
-export interface Metadata {
-  title?: string
-  description?: string
-  icon?: string
-}
-
-export interface Word {
-  id: string
-  title: string
-  time: string
-  content?: string
-  tags?: string[]
-}
