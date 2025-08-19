@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { getAllPosts1 } from './notion-fetcher.ts'
+import { fetchAllPosts } from './notion-fetcher.ts'
 import { convertWithMedia } from './md-downloader.ts'
 import type { PostMeta } from './types.ts'
 
@@ -22,7 +22,7 @@ export async function main(config: FetcherConfig): Promise<FetchResult> {
 
   try {
     // 获取所有文章
-    const allPosts = await getAllPosts1(config.notionDatabaseId)
+    const allPosts = await fetchAllPosts(config.notionDatabaseId)
 
     console.log(`📚 Found ${allPosts.length} published posts`)
 

@@ -5,19 +5,19 @@ export const notion = new Client({
   auth: import.meta.env.NOTION_TOKEN,
 })
 
-export async function getAllPosts1(databaseId: string): Promise<PostMeta[]> {
+export async function fetchAllPosts(databaseId: string): Promise<PostMeta[]> {
   const posts: PostMeta[] = []
   let startCursor: string | undefined
 
   do {
     const response = await notion.databases.query({
       database_id: databaseId,
-      // filter: {
-      //   and: [
-      //     { property: 'status', select: { equals: 'Published' } },
-      //     { property: 'type', select: { equals: 'Post' } },
-      //   ],
-      // },
+      filter: {
+        and: [
+          { property: 'status', select: { equals: 'Published' } },
+          { property: 'type', select: { equals: 'Post' } },
+        ],
+      },
       sorts: [{ property: 'date', direction: 'descending' }],
       start_cursor: startCursor,
     })
