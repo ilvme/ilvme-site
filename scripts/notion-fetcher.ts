@@ -98,3 +98,71 @@ const parsePageIcon = (page: PageObjectResponse): string | undefined => {
 const parsePageCover = (page: PageObjectResponse): string | undefined => {
   return page.cover?.type === 'external' ? (page.cover.external.url as string) : undefined
 }
+
+// 获取所有发布的说说
+export async function listWords(databaseId: string): Promise<Word[]> {
+  const allPages = await listAllPages(databaseId, {
+    sorts: [{ property: 'PublishAt', direction: 'descending' }],
+  })
+
+  const allWords = allPages.map((item) => {
+    return {
+      id: item.id,
+      title: item.properties.Title.title[0]?.plain_text,
+      time: item.properties.PublishAt.formula.date.start,
+      // content: item.properties.Title.title[0]?.plain_text || '这条说说内容去火星啦~',
+    }
+  })
+  return allWords
+}
+
+// 获取指定数据库下所有页面，支持自定义查询参数
+export async function listAllPages(
+  databaseId: string,
+  options?: {
+    filter?: any
+    sorts?: any
+    pageSize?: number
+  }
+) {
+  try {
+    const allPages = []
+    let hasMore = true
+    let nextCursor: string | null = undefined
+
+    while (hasMore) {
+      const res = await notion.databases.query({
+        database_id: databaseId,
+        page_size: options?.pageSize || 100,
+        start_cursor: nextCursor,
+        filter: options?.filter,
+        sorts: options?.sorts,
+      })
+
+      allPages.push(...res.results)
+
+      hasMore = res.has_more
+      nextCursor = res.next_cursor
+    }
+
+    console.log(`获取所有页面完成，总数：${allPages.length}`)
+    return allPages
+  } catch (error) {
+    console.error('Error fetching all pages:', error)
+    throw error
+  }
+}
+
+const expireTime = 5 * 60 * 1000 // 5 分钟
+export async function getWords(databaseId: string): Promise<Word[]> {
+  let words = localStorage.getItem('words')
+  // 缓存有效
+  if (words && Date.now() - localStorage.getItem('words_last_update_time') < expireTime) {
+    return JSON.parse(words)
+  }
+
+  words = await listWords(databaseId)
+  localStorage.setItem('words', JSON.stringify(words))
+  localStorage.setItem('words_last_update_time', Date.now())
+  return words
+}

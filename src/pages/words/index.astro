@@ -1,53 +1,15 @@
 ---
-// import { getCollection } from 'astro:content'
-// import PostItem from '../../components/post/PostItem.astro'
-// import BaseLayout from '../../layouts/BaseLayout.astro'
-// import { formatPast, formatTime } from '../../libs/support'
-// import { marked } from 'marked'
-// import Prose from '../../components/post/Prose.astro'
-// import { SiteConfig } from '../../ilvme.config'
-//
-// const allPosts = await getCollection('essays')
-//
-// const res = await fetch(`${import.meta.env.MEMOS_API_URL}/memos`, {
-//   method: 'GET',
-//   headers: {
-//     'Content-Type': 'application/json',
-//     Authorization: `Bearer ${import.meta.env.MEMOS_TOKEN}`,
-//   },
-// })
-//
-// const data = await res.json()
-// const { memos, nextPageToken } = data
-// console.log('数据: ', memos[1])
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import PageHero from '../../components/post/PageHero.astro'
-import Decorating from '../../components/ui/Decorating.astro'
+import Words from '../../components/post/Words.vue'
 ---
 
 <BaseLayout>
-  <!--<div class="space-y-6">-->
-  <!--  {-->
-  <!--    memos.map((memo) => (-->
-  <!--      <div class="flex flex-col gap-2">-->
-  <!--        <div class="rounded-2xl border p-4">-->
-  <!--          <p class="text-sm text-gray-400">{formatPast(memo.createTime)}</p>-->
-  <!--          <Prose>-->
-  <!--            <article set:html={marked(memo.content)} />-->
-  <!--          </Prose>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    ))-->
-  <!--  }-->
-  <!--</div>-->
-
   <PageHero title="说说">
     <p class="text-secondary text-sm">
       说说（Daily Words)：一句话叙当前所历之事，一句话抒此刻难言之情，一句话吐所遇违心之槽。
     </p>
   </PageHero>
 
-  <Decorating />
-
-  <!--<WordCard />-->
+  <Words client:load />
 </BaseLayout>

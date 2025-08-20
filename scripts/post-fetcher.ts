@@ -5,7 +5,7 @@ import { convertWithMedia } from './md-downloader.ts'
 
 export async function fetchAndSavePosts(
   notionDatabaseId = import.meta.env.NOTION_DATABASE_ID as string,
-  outputDir = 'src/content-test/posts' as string
+  outputDir = 'src/content/posts-test' as string
 ): Promise<void> {
   try {
     // 获取所有文章，并筛选需要更新的文章
