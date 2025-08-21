@@ -1,0 +1,32 @@
+---
+export interface Props {
+  type?: 'spinner' | 'dots' | 'bar' // 加载动画类型
+  text?: string // 加载提示文本
+}
+
+const { type = 'spinner', text = '加载中...' } = Astro.props
+---
+
+<div class="flex flex-col items-center justify-center py-8">
+  {type === 'spinner' && <div class="mb-4 h-12 w-12 animate-spin rounded-full border-t-2 border-b-2 border-blue-500" />}
+
+  {
+    type === 'dots' && (
+      <div class="mb-4 flex gap-2">
+        <div class="h-3 w-3 animate-bounce rounded-full bg-blue-500" style="animation-delay: 0ms" />
+        <div class="h-3 w-3 animate-bounce rounded-full bg-blue-500" style="animation-delay: 150ms" />
+        <div class="h-3 w-3 animate-bounce rounded-full bg-blue-500" style="animation-delay: 300ms" />
+      </div>
+    )
+  }
+
+  {
+    type === 'bar' && (
+      <div class="mb-4 h-2 w-64 overflow-hidden rounded-full bg-gray-200">
+        <div class="h-full animate-pulse bg-blue-500" style="width: 60%" />
+      </div>
+    )
+  }
+
+  <p class="text-gray-600">{text}</p>
+</div>

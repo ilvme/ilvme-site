@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import PageHero from '../../components/post/PageHero.astro'
-import Words from '../../components/post/Words.vue'
+import Loading from '../../components/ui/Loading.astro'
+import Words from '../../components/word/Words.astro'
 ---
 
 <BaseLayout>
@@ -11,5 +12,7 @@ import Words from '../../components/post/Words.vue'
     </p>
   </PageHero>
 
-  <Words client:load />
+  <Words server:defer>
+    <Loading slot="fallback" />
+  </Words>
 </BaseLayout>

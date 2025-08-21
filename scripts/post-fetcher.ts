@@ -4,7 +4,7 @@ import { fetchAllPosts, updateLastFetchedTime } from './notion-fetcher.ts'
 import { convertWithMedia } from './md-downloader.ts'
 
 export async function fetchAndSavePosts(
-  notionDatabaseId = import.meta.env.NOTION_DATABASE_ID as string,
+  notionDatabaseId = import.meta.env.NOTION_POST_DATABASE_ID as string,
   outputDir = 'src/content/posts-test' as string
 ): Promise<void> {
   try {

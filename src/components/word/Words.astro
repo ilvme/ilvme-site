@@ -1,0 +1,18 @@
+---
+import { formatPast } from '../../libs/support'
+import WordCard from './WordCard.astro'
+import { fetchAllWords } from '../../../scripts/words-fetcher'
+import type { Word } from '../../../scripts/types'
+
+const words: Word[] = await fetchAllWords()
+---
+
+<div class="max-h-[300px] space-y-6 overflow-auto border border-5 border-gray-400/10 px-3 py-2">
+  {words.map((word) => <WordCard word={word} />)}
+</div>
+
+<p class="text-secondary text-right text-xs">
+  <span>累积 {words.length} 条说说。</span>
+  <span>第一条说说发布于{formatPast(words[words.length - 1]?.time)}。 </span>
+  <span>最近一条发布于{formatPast(words[0].time)}。</span>
+</p>

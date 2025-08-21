@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite'
 import vercel from '@astrojs/vercel'
 import mdx from '@astrojs/mdx'
 
-import vue from '@astrojs/vue';
+import vue from '@astrojs/vue'
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,7 +14,7 @@ export default defineConfig({
 
   server: {
     port: 4321,
-    open: 'words',
+    open: 'friends',
   },
 
   vite: { plugins: [tailwindcss()] },

@@ -1,0 +1,12 @@
+---
+import { formatPast } from '../../libs/support'
+const word = Astro.props.word
+---
+
+<article
+  class="flex w-[80%] cursor-pointer flex-col gap-1.5 rounded-xl border border-gray-300 bg-gray-50 px-3 py-3 transition-all duration-200 hover:scale-101"
+>
+  <p class="text-xs text-gray-400">{formatPast(word.time)}</p>
+  <p class="text-sm font-bold">{word.title}</p>
+  <p class="text-secondary text-xs">{word.content}</p>
+</article>
