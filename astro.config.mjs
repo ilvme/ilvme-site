@@ -3,8 +3,6 @@ import tailwindcss from '@tailwindcss/vite'
 import vercel from '@astrojs/vercel'
 import mdx from '@astrojs/mdx'
 
-import vue from '@astrojs/vue'
-
 // https://astro.build/config
 export default defineConfig({
   site: 'https://v4.ikangjia.cn',
@@ -29,5 +27,5 @@ export default defineConfig({
   },
 
   adapter: vercel(),
-  integrations: [mdx(), vue()],
+  integrations: [mdx()],
 })

@@ -4,7 +4,7 @@ import PageHero from '../../components/post/PageHero.astro'
 import Loading from '../../components/ui/Loading.astro'
 import Words from '../../components/word/Words.astro'
 
-export const prerender = false
+// export const prerender = false
 ---
 
 <BaseLayout>
@@ -14,7 +14,9 @@ export const prerender = false
     </p>
   </PageHero>
 
-  <Words server:defer>
-    <Loading slot="fallback" />
-  </Words>
+  <!--<Words server:defer>-->
+  <!--  <Loading slot="fallback" />-->
+  <!--</Words>-->
+
+  <Words />
 </BaseLayout>
