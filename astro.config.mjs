@@ -12,7 +12,7 @@ export default defineConfig({
 
   server: {
     port: 4321,
-    open: 'friends',
+    // open: 'friends',
   },
 
   vite: { plugins: [tailwindcss()] },
