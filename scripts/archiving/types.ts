@@ -15,11 +15,3 @@ export interface PostMeta {
   last_fetched_time: string | null // 最后抓取时间，取自 Notion
   notion_page_id: string // Notion 页面 ID
 }
-
-export interface Word {
-  id: string
-  title: string
-  time: string
-  content?: string
-  tags?: string[]
-}
