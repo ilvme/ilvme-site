@@ -1,8 +1,8 @@
 ---
 import { formatPast } from '../../libs/support'
 import WordCard from './WordCard.astro'
-import { fetchAllWords } from '../../../scripts/words-fetcher'
-import type { Word } from '../../../scripts/types'
+import { fetchAllWords } from '../../libs/words-loader'
+import type { Word } from '../../../scripts/archiving/types'
 
 const words: Word[] = await fetchAllWords()
 ---
