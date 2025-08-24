@@ -4,13 +4,15 @@ const post = Astro.props.post
 ---
 
 <div class="mb-8 block last:mb-0">
-  <div class="flex gap-3">
-    <h2 class="flex-1">
-      <a href={post.url} class="text-lg font-bold underline-offset-4 hover:underline">
-        {post.title}
-      </a>
-    </h2>
+  <div class="flex gap-20">
+    <div class="flex-1">
+      <h2>
+        <a href={post.url} class="text-xl font-bold underline-offset-4 hover:underline">
+          {post.title}
+        </a>
+      </h2>
+      <p class="mt-1 font-light">{post.summary}</p>
+    </div>
     <div class="shrink-0 text-sm leading-6">{formatDate(post.date)}</div>
   </div>
-  <p class="mt-1 font-light">{post.description}</p>
 </div>
