@@ -18,7 +18,7 @@ export async function fetchAndSavePosts(
 
       // 检查本地文件是否还存在，如果本地文件不存在，需要更新
       const localDirPath = path.join(outputDir, `${post.slug}`)
-      if (!fs.existsSync(localDirPath) || !fs.existsSync(path.join(localDirPath, 'index.mdx'))) {
+      if (!fs.existsSync(localDirPath) || !fs.existsSync(path.join(localDirPath, 'index.md'))) {
         return true
       }
 
