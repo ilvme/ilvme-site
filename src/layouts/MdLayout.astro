@@ -22,3 +22,25 @@ const { frontmatter, headings } = Astro.props
   <!-- 目录 -->
   {headings.length > 0 && <PostToc headings={headings} />}
 </BaseLayout>
+
+<!-- 在你的 Markdown 布局组件（如 MarkdownLayout.astro）中添加脚本 -->
+<script>
+  // 页面加载后，为所有 .image-item 自动生成文本层
+  window.addEventListener('DOMContentLoaded', () => {
+    const imageItems = document.querySelectorAll('.image-grid')
+    // console.log(imageItems)
+    imageItems.forEach((item) => {
+      item.childNodes.forEach((child) => {
+        // console.log(child)
+        const img = child.childNodes[0]
+        if (!img) return
+
+        const altText = img.alt || ''
+        const textEl = document.createElement('div')
+        textEl.className = 'image-text'
+        textEl.textContent = altText
+        child.appendChild(textEl)
+      })
+    })
+  })
+</script>

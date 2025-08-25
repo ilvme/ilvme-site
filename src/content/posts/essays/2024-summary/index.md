@@ -6,7 +6,7 @@ status: published # published | draft | private
 date: 2024-12-31
 category: Essays
 tags: [年终总结, 流水账]
-summary: 一人变两人，三餐四季
+summary: 从此一人两人三餐四季。
 ---
 
 ## 生活

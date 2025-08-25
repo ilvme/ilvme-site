@@ -11,7 +11,7 @@ const SiteConfig = {
   // keywords: ['ilvme', 'ilvme.com', 'ilvme.site'],
 
   themeConfig: {
-    pageSize: 20,
+    pageSize: 200,
   },
 
   // 说说抓取间隔，单位：秒，低于5分钟，设置无效！！
