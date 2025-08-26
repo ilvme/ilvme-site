@@ -22,12 +22,12 @@ export async function convertWithMedia(postMeta: PostMeta, outputDir: string = '
         batchSize: 10, // 并行处理的块数。值越大性能越高，但内存使用率越高。默认值为 3,
       })
       // 配置导出器
-      .withExporter(
-        new DefaultExporter({
-          outputType: 'file',
-          outputPath: path.join(realPath, `index.mdx`),
-        })
-      )
+      // .withExporter(
+      //   new DefaultExporter({
+      //     outputType: 'file',
+      //     outputPath: path.join(realPath, 'index.mdx'),
+      //   })
+      // )
       // 配置媒体下载
       .downloadMediaTo({
         outputDir: realPath,
