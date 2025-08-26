@@ -1,12 +1,20 @@
+/*
+单张一行
+两张一行
+多张一行
+四宫格
+九宫格
+*/
 /* 多图并排容器 */
 .image-grid {
     display: flex;
     justify-content: center;
-    align-items: center;
+    /*align-items: center;*/
     gap: 0.5rem; /* 图片间距 */
     margin: 1.5rem 0; /* 上下外边距 */
     flex-wrap: nowrap; /* 自动换行，避免溢出 */
     overflow: auto;
+    width: 100%;
 }
 
 .image-grid .image-text {
@@ -14,7 +22,6 @@
     color: #777;
     text-align: center;
 }
-
 
 /* 网格布局变体（可选） */
 .image-grid.grid-2 {
@@ -26,16 +33,20 @@
 }
 
 /* 单个图片样式 */
-.image-grid img {
+img {
     flex: 1; /* 平均分配宽度 */
     min-width: 200px; /* 最小宽度，避免过窄 */
-    max-height: 300px; /* 限制最大高度 */
-    object-fit: cover; /* 保持比例，裁剪多余部分 */
-    border-radius: 4px; /* 可选：添加圆角 */
+    max-height: 800px; /* 限制最大高度 */
+    /*object-fit: cover; !* 保持比例，裁剪多余部分 *!*/
+    border-radius: 10px; /* 可选：添加圆角 */
     box-shadow: 0 1px 3px rgba(0,0,0,0.1); /* 可选：添加阴影 */
     transition: transform 0.2s ease-in-out;
     cursor: pointer;
     margin: 0 auto;
+
+    &:hover{
+        transform: scale(101%);
+    }
 }
 
 /* 响应式调整 */
@@ -45,7 +56,7 @@
     }
 
     .image-grid img {
-        min-width: 100%; /* 占满屏幕宽度 */
+        min-width: 90%; /* 占满屏幕宽度 */
         max-height: none; /* 取消高度限制 */
     }
 }

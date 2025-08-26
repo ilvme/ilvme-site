@@ -6,7 +6,7 @@ status: published # published | draft | private
 date: 2022-04-26
 category: Essays
 tags: [断舍离, 自我管理]
-summary:
+summary: 试图尝试某种大而全但是又不繁杂的框来框住自己。小框是束缚，大框反而是洒脱。我要的就是超脱框本身的局限性，而创造出一种大框来。
 ---
 
 ## 引言

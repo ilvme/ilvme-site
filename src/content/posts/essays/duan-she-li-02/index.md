@@ -6,7 +6,7 @@ status: published # published | draft | private
 date: 2022-09-07
 category: Essays
 tags: [断舍离, 自我管理]
-summary:
+summary: 小框以为束缚，大框是为洒脱。主干已成，后续只需勤浇水、多施肥，在风吹日晒、霜打雨淋中开出枝繁叶茂、结出累累硕果。
 ---
 
 ## 最初的探索

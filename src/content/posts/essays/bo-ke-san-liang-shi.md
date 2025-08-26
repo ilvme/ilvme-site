@@ -6,7 +6,7 @@ status: draft # published | draft | private
 date: 2024-12-27
 category: Essays
 tags: [折腾, 博客]
-summary:
+summary: 这些年折腾博客的历程
 ---
 
 {% note danger %}

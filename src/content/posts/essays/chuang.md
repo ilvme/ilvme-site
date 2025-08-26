@@ -6,10 +6,11 @@ status: published # published | draft | private
 date: 2016-04-25
 category: Essays
 tags: [大学, 诗]
-summary:
+summary: 意识流转卷起窗前尘
 ---
 
 《窗》
+
 像是听着一首节奏快慢不定的卡农</br>
 再有风 吹过灰尘的窗</br>
 我一笔划在纸上</br>
