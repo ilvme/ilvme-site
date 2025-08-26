@@ -5,7 +5,7 @@
   "name": "林深时觉寒（必填）",
   "url": "https://ikangjia.cn（必填）",
   "avatar": "",
-  "description": "Every dog has its day.",
+  "motto": "Every dog has its day.",
   "tags": ["技术", "生活"]
 }
 ```

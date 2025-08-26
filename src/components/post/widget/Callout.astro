@@ -1,0 +1,25 @@
+---
+const { title, icon, type } = Astro.props
+
+const bgColor = {
+  info: 'bg-blue-50',
+  warning: 'bg-yellow-50',
+  error: 'bg-red-50',
+  success: 'bg-green-50',
+}
+---
+
+<div class={`rounded-2xl px-6 py-2 ${bgColor[type]} mb-8`}>
+  {
+    title && (
+      <span class="font-bold">
+        {icon}
+        <span class="pl-2">{title}</span>
+      </span>
+    )
+  }
+
+  <span class="">
+    <slot />
+  </span>
+</div>
