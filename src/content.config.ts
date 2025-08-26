@@ -15,12 +15,12 @@ const essays = defineCollection({
   // }),
 })
 
-const notes = defineCollection({
-  loader: glob({ base: './src/content/posts/notes', pattern: '**/*.{md,mdx}' }),
+const codeNotes = defineCollection({
+  loader: glob({ base: './src/content/posts/code', pattern: '**/*.{md,mdx}' }),
 })
 
 const posts = defineCollection({
   loader: glob({ base: './src/content/posts', pattern: '**/*.{md,mdx}' }),
 })
 
-export const collections = { essays, notes, posts }
+export const collections = { essays, codeNotes, posts }

@@ -17,11 +17,11 @@ export async function getAllEssays() {
 }
 
 export async function getAllNotes() {
-  const essays = await getCollection('notes')
+  const posts = await getCollection('codeNotes')
 
   // @ts-ignore
-  essays.sort((a, b) => new Date(b.data.date) - new Date(a.data.date))
-  return essays
+  posts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date))
+  return posts
 }
 
 export async function getAllTags() {
@@ -35,9 +35,4 @@ export async function getAllTags() {
   }))
 
   return tagMap.sort((a, b) => b.count - a.count)
-}
-
-export async function getPostsByTag() {
-  const essays = await getCollection('essays')
-  console.log(essays.length)
 }

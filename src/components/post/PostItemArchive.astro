@@ -10,7 +10,7 @@ const isNotesPage = ['/notes', '/notes/', 'notes'].includes(Astro.url.pathname)
     <h2 class="relative flex-1">
       {
         !isNotesPage &&
-          (post.category === 'Notes' ? (
+          (post.category === 'Code' ? (
             <span class="absolute -left-12 rounded bg-[#f6f6f7] px-1 py-0.5 text-xs text-gray-400 max-md:hidden">
               技术
             </span>
