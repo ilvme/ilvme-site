@@ -7,7 +7,7 @@ import PageHero from '../../components/post/PageHero.astro'
 const allPosts = await getAllNotes()
 ---
 
-<BaseLayout>
+<BaseLayout title="技术笔记">
   <PageHero title="技术笔记">
     <p class="">共有 {allPosts.length} 篇文章。</p>
   </PageHero>
