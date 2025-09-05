@@ -5,16 +5,48 @@ import { getAllPosts } from '../../libs/content-loader'
 
 export async function getStaticPaths() {
   const posts = await getAllPosts()
-  return posts.map((post) => ({
+  return posts.map((post, index) => ({
     params: { slug: post.id },
-    props: { post },
+    props: {
+      post,
+      prevPost: index > 0 ? posts[index - 1] : null,
+      nextPost: index < posts.length - 1 ? posts[index + 1] : null,
+    },
   }))
 }
 
-const { post } = Astro.props
+const { post, prevPost, nextPost } = Astro.props
 const { Content, headings } = await render(post)
 ---
 
 <MdLayout frontmatter={post.data} headings={headings}>
   <Content />
+
+  <hr />
+  <div class="mt-6 flex justify-between gap-20" slot="post-after">
+    <div class="max-w-[40%]">
+      {
+        prevPost && (
+          <>
+            <p class="text-secondary mb-1.5 text-sm">上一篇</p>
+            <a href={`/posts/${prevPost.id}`} class="font-bold hover:underline">
+              {prevPost.data.title}
+            </a>
+          </>
+        )
+      }
+    </div>
+    <div class="max-w-[40%]">
+      {
+        nextPost && (
+          <>
+            <p class="text-secondary mb-1.5 text-sm">下一篇</p>
+            <a href={`/posts/${nextPost.id}`} class="font-bold hover:underline">
+              {nextPost.data.title}
+            </a>
+          </>
+        )
+      }
+    </div>
+  </div>
 </MdLayout>

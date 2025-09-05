@@ -19,6 +19,8 @@ const { frontmatter, headings } = Astro.props
   <!-- 正文 -->
   <Prose><slot /> </Prose>
 
+  <slot name="post-after" />
+
   <!-- 目录 -->
   {headings.length > 0 && <PostToc headings={headings} />}
 </BaseLayout>
