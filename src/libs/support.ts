@@ -36,38 +36,38 @@ export function formatPast(param: Date | number | string): string {
   } else if (diffInMinutes < 60) {
     const seconds = diffInSeconds % 60
     if (seconds > 0) {
-      return `${diffInMinutes}分钟${seconds}秒前`
+      return `${diffInMinutes} 分钟 ${seconds} 秒前`
     }
-    return `${diffInMinutes}分钟前`
+    return `${diffInMinutes} 分钟前`
   } else if (diffInHours < 24) {
     const minutes = diffInMinutes % 60
     if (minutes > 0) {
-      return `${diffInHours}小时${minutes}分钟前`
+      return `${diffInHours} 小时 ${minutes} 分钟前`
     }
-    return `${diffInHours}小时前`
+    return `${diffInHours} 小时前`
   } else if (diffInDays < 30) {
     const hours = diffInHours % 24
     if (hours > 0) {
-      return `${diffInDays}天${hours}小时前`
+      return `${diffInDays} 天 ${hours} 小时前`
     }
-    return `${diffInDays}天前`
+    return `${diffInDays} 天前`
   } else if (diffInYears < 1) {
     const days = diffInDays % 30
     if (days > 0) {
-      return `${diffInMonths}个月${days}天前`
+      return `${diffInMonths} 个月 ${days} 天前`
     }
-    return `${diffInMonths}个月前`
+    return `${diffInMonths} 个月前`
   } else {
     const months = diffInMonths % 12
     const days = diffInDays % 30
-    let result = `${diffInYears}年`
+    let result = `${diffInYears} 年`
     if (months > 0) {
-      result += `${months}个月`
+      result += `${months} 个月`
     }
     if (days > 0) {
-      result += `${days}天`
+      result += `${days} 天`
     }
-    result += '前'
+    result += ' 前'
     return result
   }
 }

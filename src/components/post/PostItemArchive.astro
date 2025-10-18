@@ -23,6 +23,6 @@ const isNotesPage = ['/notes', '/notes/', 'notes'].includes(Astro.url.pathname)
         {post.title}
       </a>
     </h2>
-    <div class="text-secondary shrink-0 text-sm leading-6">{formatDate(post.date)}</div>
+    <div class="text-secondary shrink-0 font-mono text-sm leading-6">{formatDate(post.date)}</div>
   </div>
 </div>
