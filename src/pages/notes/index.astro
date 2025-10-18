@@ -4,15 +4,15 @@ import PostItemArchive from '../../components/post/PostItemArchive.astro'
 import { getAllNotes } from '../../libs/content-loader'
 import PageHero from '../../components/post/PageHero.astro'
 
-const allPosts = await getAllNotes()
+const allNotes = await getAllNotes()
 ---
 
 <BaseLayout title="技术笔记">
   <PageHero title="技术笔记">
-    <p class="">共有 {allPosts.length} 篇文章。</p>
+    <p class="">共有 {allNotes.length} 篇文章。</p>
   </PageHero>
 
-  <main>
-    {allPosts.map((post) => <PostItemArchive key={post.id} post={{ url: '/posts/' + post.id, ...post.data }} />)}
+  <main class="-mt-3">
+    {allNotes.map((post) => <PostItemArchive key={post.id} post={{ url: '/posts/' + post.id, ...post.data }} />)}
   </main>
 </BaseLayout>
