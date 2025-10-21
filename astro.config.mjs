@@ -5,24 +5,21 @@ import mdx from '@astrojs/mdx'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://v4.ikangjia.cn',
+  site: 'https://ikangjia.cn',
 
   // output: 'static',
   // integrations: [],
 
   server: {
     port: 4321,
-    // open: 'friends',
   },
 
   vite: { plugins: [tailwindcss()] },
 
   markdown: {
     shikiConfig: {
-      themes: {
-        // light: 'github-light',
-        // dark: 'github-dark',
-      },
+      theme: 'github-dark',
+      // theme: 'vitesse-black',
     },
   },
 
