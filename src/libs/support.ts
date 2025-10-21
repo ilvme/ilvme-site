@@ -73,7 +73,6 @@ export function formatPast(param: Date | number | string): string {
 }
 
 export const categoriesMeta = [
-  { type: 'Code', name: 'all', label: '全部' },
   { type: 'Code', name: 'FrontEnd', label: '前端' },
   { type: 'Code', name: 'BackEnd', label: '后端' },
   { type: 'Code', name: 'Toolchains', label: '工具链' },

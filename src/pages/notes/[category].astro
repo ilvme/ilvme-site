@@ -12,48 +12,46 @@ export async function getStaticPaths() {
   uniqueCategories.unshift('all')
 
   // 分别统计每个类别的文章数
-  const categoriesInfo = uniqueCategories.map((category) => {
-    if (category === 'all') {
-      return {
-        name: 'all',
-        label: '全部',
-        count: allNotes.length,
-      }
-    }
+  const categoriesInfo: { name: string; label: string; count: number }[] = []
 
-    return {
-      name: category,
-      label: categoriesMeta.find((item) => item.name === category)?.label || category,
-      count: allNotes.filter((post: any) => post.data.category === category).length,
+  uniqueCategories.map((category) => {
+    if (category === 'all') {
+      categoriesInfo.push({ name: 'all', label: '全部', count: allNotes.length })
+    } else {
+      categoriesInfo.push({
+        name: category,
+        label: categoriesMeta.find((item) => item.name === category)?.label || category,
+        count: allNotes.filter((post: any) => post.data.category === category).length,
+      })
     }
   })
 
+  // 构造返回
   return uniqueCategories.map((category) => {
     if (category === 'all') {
       return {
         params: { category },
-        props: { posts: allNotes, allCategories: categoriesInfo },
+        props: { posts: allNotes, categoriesInfo },
       }
     }
 
     const filteredPosts = allNotes.filter((post: any) => post.data.category === category)
     return {
       params: { category },
-      props: { posts: filteredPosts, allCategories: categoriesInfo },
+      props: { posts: filteredPosts, categoriesInfo },
     }
   })
 }
 
 const { category } = Astro.params
-const { posts, allCategories } = Astro.props
+const { posts, categoriesInfo } = Astro.props
 ---
 
 <BaseLayout title="技术笔记">
   <PageHero title="技术笔记">
     {
-      allCategories.map((c) => (
+      categoriesInfo.map((c) => (
         <a
-          key={c}
           class={`mr-2 inline-block rounded-lg bg-gray-100 px-2 py-1 text-sm text-gray-600 hover:bg-rose-100 ${category === c.name ? 'bg-rose-100 font-bold' : ''}`}
           href={`/notes/${c.name}`}
         >
