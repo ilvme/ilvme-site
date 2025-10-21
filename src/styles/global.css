@@ -1,17 +1,17 @@
 @import 'tailwindcss';
 @import './variables.css';
 
-@theme {
-  --color-ink: var(--text-color);
-  --color-secondary: var(--text-color-secondary);
-}
-
 @plugin '@tailwindcss/typography';
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@custom-variant dark (&:where(.dark, .dark *));
 @layer base {
   a {
     @apply underline-offset-4;
   }
+}
+
+@theme {
+  --color-ink: var(--text-color);
+  --color-secondary: var(--text-color-secondary);
 }
 
 html {

@@ -20,11 +20,14 @@ const navs = [
   <div class="flex gap-4">
     {
       navs.map((nav) => (
-        <a href={nav.link} class="opacity-60 transition-opacity duration-300 ease-in-out hover:opacity-100">
+        <a
+          href={nav.link}
+          class="opacity-80 transition-opacity duration-300 ease-in-out hover:underline hover:opacity-100"
+        >
           {nav.name}
         </a>
       ))
     }
-    <!--<ThemeToggle />-->
+    <ThemeToggle />
   </div>
 </header>

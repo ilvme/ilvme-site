@@ -1,9 +1,48 @@
 ---
 import '../../styles/markdown-image.css' // 引入图片样式
+
+const classes = `prose
+   dark:prose-invert"
+  
+  text-ink
+  prose-p:text-ink
+  prose-headings:text-ink
+  prose-a:text-secondary
+  
+  
+  
+  md:prose-base
+  lg:prose-lg
+  xl:prose-lg
+  2xl:prose-xl 
+  
+  sm:prose-p:tracking-[.01em] 
+  2xl:prose-p:tracking-[.04em] 
+  
+  prose-a:decoration-1
+  
+  prose-p:text-justify 
+
+  prose-img:rounded-xl 
+  
+  prose-code:before:content-none 
+  prose-code:after:content-none 
+  prose-code:text-rose-300
+  prose-code:font-normal
+  dark:prose-code:text-rose-400
+  
+  prose-blockquote:[&_p]:before:content-none 
+  prose-blockquote:[&_p]:after:content-none 
+  
+  prose-img:sm:w-[90%] 
+  prose-img:mx-auto 
+  
+  max-w-none
+  leading-loose 
+  break-words
+`
 ---
 
-<div
-  class="prose sm:prose-p:tracking-[.01em] 2xl:prose-p:tracking-[.04em] prose-a:decoration-1 prose-p:text-justify prose-img:rounded-xl prose-code:before:content-none prose-code:after:content-none prose-blockquote:[&_p]:before:content-none prose-blockquote:[&_p]:after:content-none prose-img:sm:w-[90%] dark:prose-invert prose-img:mx-auto prose-p:text-gray-600 max-w-none text-base leading-loose break-words xl:text-lg"
->
+<div class={classes}>
   <slot />
 </div>
