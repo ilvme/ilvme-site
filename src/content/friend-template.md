@@ -1,4 +1,4 @@
-如果你想与我交换友链，可以按照下面格式给我发 [邮件](mailto:ikangjia.cn@outlook.com)。
+欢迎互换友链，你可以按照下面格式给我发 [邮件](mailto:ikangjia.cn@outlook.com)。
 
 ```json
 {

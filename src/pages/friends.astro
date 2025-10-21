@@ -9,7 +9,7 @@ import Prose from '../components/post/Prose.astro'
 <BaseLayout title="友情链接" icon="✨">
   <PageHero title="友情链接" />
 
-  <ul>
+  <ul class="mb-10">
     {
       friends.map((friend) => (
         <li class="flex items-baseline gap-3 pt-1.5">
@@ -22,11 +22,7 @@ import Prose from '../components/post/Prose.astro'
     }
   </ul>
 
-  <p class="mt-10 mb-5"></p>
-  <p>
-    <!--<a href="mailto:<EMAIL>" class="underline underline-offset-4">Mail</a>-->
-    <Prose>
-      <FriendTemplate />
-    </Prose>
-  </p>
+  <Prose>
+    <FriendTemplate />
+  </Prose>
 </BaseLayout>
