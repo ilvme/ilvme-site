@@ -4,7 +4,7 @@ type: Post
 slug: bu-shui-de-meng-xiang
 status: published # published | draft | private
 date: 2018-06-19
-category: Essays
+category: Mess
 tags: [大学, 生活]
 summary:
 ---

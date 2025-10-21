@@ -4,7 +4,7 @@ type: Post
 slug: poetry-of-high-school
 status: published
 date: 2014-01-01
-category: Essays
+category: Poetry
 tags: [诗, 青春, 高中]
 summary:
 ---

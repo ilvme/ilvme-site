@@ -4,7 +4,7 @@ type: Post
 slug: qq-ten-years
 status: published
 date: 2019-10-11
-category: Essays
+category: Thoughts
 tags: [QQ, 青春]
 summary: 这是一篇长文，长到我要用近10年光阴去完成。
 ---

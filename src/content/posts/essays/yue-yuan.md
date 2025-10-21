@@ -4,7 +4,7 @@ type: Post
 slug: yue-yuan
 status: published # published | draft | private
 date: 2019-01-20
-category: Essays
+category: Poetry
 tags: [大学, 诗]
 summary:
 ---

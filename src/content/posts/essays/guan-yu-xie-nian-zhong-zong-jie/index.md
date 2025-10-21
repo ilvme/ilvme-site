@@ -4,7 +4,7 @@ type: Post
 slug: guan-yu-xie-nian-zhong-zong-jie
 status: published # published | draft | private
 date: 2022-12-16
-category: Essays
+category: Mess
 tags: [杂文]
 summary: 「回望」、「构思」、「行文」
 ---

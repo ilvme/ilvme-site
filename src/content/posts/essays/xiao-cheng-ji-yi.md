@@ -4,7 +4,7 @@ type: Post
 slug: xiao-cheng-ji-yi
 status: published
 date: 2020-01-27
-category: Essays
+category: SimpleLife
 tags: [疫情, 县城记忆]
 summary:
 ---

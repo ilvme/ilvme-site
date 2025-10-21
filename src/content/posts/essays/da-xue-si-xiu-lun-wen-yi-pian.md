@@ -4,7 +4,7 @@ type: Post
 slug: da-xue-si-xiu-lun-wen-yi-pian
 status: draft # published | draft | private
 date: 2016-04-20
-category: Essays
+category: Thoughts
 tags: [大学, 思修]
 summary: 思修，思想道德之修养
 ---

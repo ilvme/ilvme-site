@@ -10,12 +10,14 @@ const isNotesPage = Astro.url.pathname.startsWith('/notes')
     <h2 class="relative flex-1">
       {
         !isNotesPage &&
-          (Object.keys(categoriesMeta).includes(post.category) ? (
-            <span class="absolute -left-10 rounded bg-[#f6f6f7] px-1 text-xs leading-6 text-gray-400 max-md:hidden">
+          (categoriesMeta.some((item) => item.name === post.category && item.type === 'Code') ? (
+            <span class="absolute -left-10 rounded bg-blue-50 px-1 text-xs leading-6 text-gray-400 max-md:hidden">
               技术
             </span>
           ) : (
-            ''
+            <span class="absolute -left-8 rounded bg-purple-50 px-1.5 text-xs leading-6 text-gray-400 max-md:hidden">
+              {post.category === 'Poetry' ? '诗' : ''}
+            </span>
           ))
       }
 
@@ -23,6 +25,7 @@ const isNotesPage = Astro.url.pathname.startsWith('/notes')
         {post.title}
       </a>
     </h2>
+
     <div class="text-secondary shrink-0 font-mono text-sm leading-6">{formatDate(post.date)}</div>
   </div>
 </div>

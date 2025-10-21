@@ -4,7 +4,7 @@ type: Post
 slug: meng-ou-tian-shu
 status: published # published | draft | private
 date: 2016-04-25
-category: Essays
+category: Poetry
 tags: [大学, 诗]
 summary:
 ---

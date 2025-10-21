@@ -4,7 +4,7 @@ type: Post
 slug: wu-hou-xiao-jie
 status: published # published | draft | private
 date: 2022-05-16
-category: Essays
+category: Poetry
 tags: [牛马, 上班]
 summary: 公司午休后，有感而发。
 ---

@@ -4,7 +4,7 @@ type: Post
 slug: mou-xie-jie-duan-de-mou-xie-ji-hua
 status: published # published | draft | private
 date: 2018-09-05
-category: Essays
+category: Mess
 tags: [大学]
 summary:
 ---

@@ -4,7 +4,7 @@ type: Post
 slug: da-dao
 status: published # published | draft | private
 date: 2023-12-07
-category: Essays
+category: Poetry
 tags: [大学, 诗]
 summary: 大道三千万
 ---

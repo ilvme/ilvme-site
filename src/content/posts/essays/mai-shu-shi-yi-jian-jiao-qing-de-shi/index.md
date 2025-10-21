@@ -4,7 +4,7 @@ type: Post
 slug: mai-shu-shi-jian-hui-jiao-qing-de-shi
 status: published # published | draft | private
 date: 2022-01-16
-category: Essays
+category: Thoughts
 tags: [书]
 summary:
 ---

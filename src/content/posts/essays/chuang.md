@@ -4,7 +4,7 @@ type: Post
 slug: chuang
 status: published # published | draft | private
 date: 2016-04-25
-category: Essays
+category: Poetry
 tags: [大学, 诗]
 summary: 意识流转卷起窗前尘
 ---

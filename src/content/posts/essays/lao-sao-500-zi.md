@@ -4,7 +4,7 @@ type: Post
 slug: lao-sa-500-zi
 status: published # published | draft | private
 date: 2018-12-19
-category: Essays
+category: Thoughts
 tags: [牢骚]
 summary: （无标点，慎读）
 ---

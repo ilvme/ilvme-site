@@ -4,7 +4,7 @@ type: Post
 slug: my-scenery
 status: published # published | draft | private
 date: 2015-01-02
-category: Essays
+category: Poetry
 tags: [高中, 诗, 青春]
 summary:
 ---

@@ -4,7 +4,7 @@ type: Post
 slug: mao-you-shi
 status: published # published | draft | private
 date: 2023-10-18
-category: Essays
+category: Poetry
 tags: [猫]
 summary:
 ---

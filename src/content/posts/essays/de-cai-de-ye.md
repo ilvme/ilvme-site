@@ -4,7 +4,7 @@ type: Post
 slug: de-cai-de-ye
 status: published # published | draft | private
 date: 2015-05-21
-category: Essays
+category: SimpleLife
 tags: [高考, 夜晚]
 summary: 《德才的夜》，我把它归类为一篇散文，其真实发生在高考前半个多月的一节晚自习上……
 ---

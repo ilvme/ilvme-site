@@ -4,7 +4,7 @@ type: Post
 slug: zuo-ye-you-xiang-ping-zhi
 status: published # published | draft | private
 date: 2018-06-29
-category: Essays
+category: Mess
 tags: [大学, 趣味]
 summary:
 ---

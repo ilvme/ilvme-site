@@ -4,7 +4,7 @@ type: Post
 slug: lu-ding-gong
 status: published # published | draft | private
 date: 2022-01-19
-category: Essays
+category: Thoughts
 tags: [剧评]
 summary: 所谓 “为人不识鹿鼎公，再称风流也枉然”，陈小春的剧版、星爷的影版，除却这两个，别的我都不认。
 ---

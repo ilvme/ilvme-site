@@ -72,10 +72,15 @@ export function formatPast(param: Date | number | string): string {
   }
 }
 
-export const categoriesMeta = {
-  all: '全部',
-  FrontEnd: '前端',
-  BackEnd: '后端',
-  Toolchains: '工具链',
-  SystemDesign: '架构与设计',
-}
+export const categoriesMeta = [
+  { type: 'Code', name: 'all', label: '全部' },
+  { type: 'Code', name: 'FrontEnd', label: '前端' },
+  { type: 'Code', name: 'BackEnd', label: '后端' },
+  { type: 'Code', name: 'Toolchains', label: '工具链' },
+  { type: 'Code', name: 'SystemDesign', label: '架构与设计' },
+
+  { type: 'Essays', name: 'Poetry', label: '诗' },
+  { type: 'Essays', name: 'SimpleLife', label: '生活' },
+  { type: 'Essays', name: 'Thoughts', label: '思想' },
+  { type: 'Essays', name: 'Mess', label: '杂文' },
+]

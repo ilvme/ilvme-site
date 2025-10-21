@@ -4,7 +4,7 @@ type: Post
 slug: wo-de-mu-qin
 status: published # published | draft | private
 date: 2025-07-17
-category: Essays
+category: Thoughts
 tags: [散文, 亲情]
 summary: 即使本文是假的，我也希望有更多类似的东西出现，唤醒下现在逐渐在缺失的人情味。
 ---

@@ -4,7 +4,7 @@ type: Post
 slug: si-suo
 status: published # published | draft | private
 date: 2017-09-03
-category: Essays
+category: Mess
 tags: [大学, 思索]
 summary:
 ---

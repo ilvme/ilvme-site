@@ -4,7 +4,7 @@ type: Post
 slug: yu-yu-fei-niao
 status: published
 date: 2015-01-19
-category: Essays
+category: Poetry
 tags: [诗, 青春]
 summary:
 ---

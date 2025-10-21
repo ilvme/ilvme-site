@@ -4,7 +4,7 @@ type: Post
 slug: tan-tan-cheng-zhang-yu-she-qi
 status: published # published | draft | private
 date: 2018.9.1
-category: Essays
+category: Thoughts
 tags: [成长, 舍弃, 断舍离]
 summary: 此刻回头再看此文，颇有感触。这可能是“断舍离主义”在我心里的萌芽吧。
 ---

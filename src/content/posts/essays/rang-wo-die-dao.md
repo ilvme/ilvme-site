@@ -4,7 +4,7 @@ type: Post
 slug: rang-wo-die-dao
 status: published # published | draft | private
 date: 2014-12-31
-category: Essays
+category: Poetry
 tags: [高中, 诗, 青春]
 summary:
 ---

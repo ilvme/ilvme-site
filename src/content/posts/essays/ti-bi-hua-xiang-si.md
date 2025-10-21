@@ -4,7 +4,7 @@ type: Post
 slug: ti-bi-hua-xiang-si
 status: published # published | draft | private
 date: 2015-03-31
-category: Essays
+category: Poetry
 tags: [高中, 诗, 青春]
 summary: 近来淫雨霏霏，数日不开。适逢七夕，感怀良多。忆记那年七夕，你素衣雅步，轻点校园；我埋头理化，奋斗未来。这一年，依旧记你清晰模样。
 ---

@@ -4,7 +4,7 @@ type: Post
 slug: zhong-chun
 status: published # published | draft | private
 date: 2018-04-11
-category: Essays
+category: SimpleLife
 tags: [大学, 诗]
 summary:
 ---

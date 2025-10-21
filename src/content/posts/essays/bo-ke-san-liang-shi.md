@@ -4,7 +4,7 @@ type: Post
 slug: bo-ke-san-liang-shi
 status: draft # published | draft | private
 date: 2024-12-27
-category: Essays
+category: Mess
 tags: [折腾, 博客]
 summary: 这些年折腾博客的历程
 ---

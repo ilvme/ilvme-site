@@ -4,7 +4,7 @@ type: Post
 slug: bei-jing-lu-shang
 status: published # published | draft | private
 date: 2018-07-13 09:21:00
-category: Essays
+category: SimpleLife
 tags: [大学, 北京]
 summary: We are on the way to Beijing ZhongGuancun by a big big bus. I’m very relaxed because the ending of Hardware training!At the same time, I’m interested in Beijing’s beautiful scenes . And I know that some day I’ll be there .
 ---

@@ -4,7 +4,7 @@ type: Post
 slug: guai-xiang-lun
 status: published # published | draft | private
 date: 2021-11-16
-category: Essays
+category: Thoughts
 tags: [思考]
 summary:
 ---

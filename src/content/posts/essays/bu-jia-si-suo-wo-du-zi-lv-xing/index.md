@@ -4,8 +4,8 @@ type: Post
 slug: bu-jia-si-suo-wo-du-zi-lv-xing
 status: published # published | draft | private
 date: 2017-08-28
-category: Essays
-tags: [大学, 诗]
+category: Thoughts
+tags: [大学]
 summary:
 ---
 

@@ -40,7 +40,7 @@ const { posts, allCategories } = Astro.props
           class={`mr-2 inline-block rounded-lg bg-gray-100 px-2 py-1 text-sm text-gray-600 hover:bg-rose-100 ${category === c ? 'bg-rose-100 font-bold' : ''}`}
           href={`/notes/${c}`}
         >
-          {categoriesMeta[c]}
+          {categoriesMeta.find((item) => item.name === c)?.label}
         </a>
       ))
     }

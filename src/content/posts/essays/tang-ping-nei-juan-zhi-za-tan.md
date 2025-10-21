@@ -4,7 +4,7 @@ type: Post
 slug: tang-ping-nei-juan-zhi-za-tan
 status: published # published | draft | private
 date: 2021-11-22
-category: Essays
+category: Thoughts
 tags: [躺平, 思考, 杂文]
 summary:
 ---
