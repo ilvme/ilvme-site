@@ -5,7 +5,7 @@ slug: html-wiki
 status: published
 date: 2025-02-03
 tags: [HTML5, 前端, 语义化]
-category: Code
+category: FrontEnd
 summary:
 ---
 

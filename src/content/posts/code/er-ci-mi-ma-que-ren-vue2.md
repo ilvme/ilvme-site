@@ -4,7 +4,7 @@ type: Post
 slug: 'er-ci-mi-ma-que-ren-vue2'
 status: published
 date: 2025-05-03
-category: Code
+category: FrontEnd
 tags: [步骤, Vue]
 summary:
 ---

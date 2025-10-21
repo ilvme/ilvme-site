@@ -5,7 +5,7 @@ slug: fe-package-management
 status: published
 date: 2025-01-03
 tags: [前端, 前端工程化, 包管理]
-category: Code
+category: FrontEnd
 summary:
 ---
 
