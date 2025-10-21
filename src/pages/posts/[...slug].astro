@@ -19,7 +19,7 @@ const { post, prevPost, nextPost } = Astro.props
 const { Content, headings } = await render(post)
 ---
 
-<MdLayout frontmatter={post.data} headings={headings}>
+<MdLayout frontmatter={{ comment: true, ...post.data }} headings={headings}>
   <Content />
 
   <hr />
