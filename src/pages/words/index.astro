@@ -9,14 +9,10 @@ export const prerender = false
 
 <BaseLayout title="说说">
   <PageHero title="说说">
-    <p class="text-secondary text-sm">
-      说说（Daily Words)：一句话叙当前所历之事，一句话抒此刻难言之情，一句话吐所遇违心之槽。
-    </p>
+    <p class="text-secondary text-sm">一句话叙当前所历之事，一句话抒此刻难言之情，一句话吐所遇违心之槽。</p>
   </PageHero>
 
   <Words server:defer>
     <Loading slot="fallback" />
   </Words>
-
-  <!--<Words />-->
 </BaseLayout>

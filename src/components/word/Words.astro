@@ -7,12 +7,12 @@ import type { Word } from '../../../scripts/archiving/types'
 const words: Word[] = await fetchAllWords()
 ---
 
-<div class="max-h-[300px] space-y-6 overflow-auto border-2 border-gray-400/10 px-3 py-2">
+<div class="max-h-[300px] space-y-4 overflow-auto border-2 border-gray-600/10 px-3 py-2">
   {words.map((word) => <WordCard word={word} />)}
 </div>
 
 <p class="text-secondary text-right text-xs">
   <span>累积 {words.length} 条说说。</span>
-  <span>第一条说说发布于{formatPast(words[words.length - 1]?.time)}。 </span>
-  <span>最近一条发布于{formatPast(words[0].time)}。</span>
+  <span>第一条说说发布于 {formatPast(words[words.length - 1]?.time)}。 </span>
+  <span>最近一条发布于 {formatPast(words[0].time)}。</span>
 </p>

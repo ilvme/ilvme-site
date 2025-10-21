@@ -60,14 +60,14 @@ export function formatPast(param: Date | number | string): string {
   } else {
     const months = diffInMonths % 12
     const days = diffInDays % 30
-    let result = `${diffInYears} 年`
+    let result = `${diffInYears} 年 `
     if (months > 0) {
-      result += `${months} 个月`
+      result += `${months} 个月 `
     }
     if (days > 0) {
       result += `${days} 天`
     }
-    result += ' 前'
+    result += '前'
     return result
   }
 }
