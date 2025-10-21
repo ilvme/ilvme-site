@@ -3,7 +3,7 @@ const SiteConfig = {
   description: '林深时觉寒的个人网站',
   author: '林深时觉寒',
   lang: `zh-CN`,
-  siteUrl: 'https://v4.ikangjia.cn',
+  siteUrl: 'https://ikangjia.cn',
   social: {
     // twitter: 'ilvme',
   },
