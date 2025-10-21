@@ -71,3 +71,11 @@ export function formatPast(param: Date | number | string): string {
     return result
   }
 }
+
+export const categoriesMeta = {
+  all: '全部',
+  FrontEnd: '前端',
+  BackEnd: '后端',
+  Toolchains: '工具链',
+  SystemDesign: '架构与设计',
+}

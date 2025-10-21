@@ -3,14 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
 import PostItemArchive from '../../components/post/PostItemArchive.astro'
 import { getAllNotes } from '../../libs/content-loader'
 import PageHero from '../../components/post/PageHero.astro'
-
-const categoriesMeta = {
-  all: '全部',
-  FrontEnd: '前端',
-  BackEnd: '后端',
-  Toolchains: '工具链',
-  SystemDesign: '架构与设计',
-}
+import { categoriesMeta } from '../../libs/support'
 
 export async function getStaticPaths() {
   const allNotes = await getAllNotes()
@@ -45,7 +38,7 @@ const { posts, allCategories } = Astro.props
         <a
           key={c}
           class={`mr-2 inline-block rounded-lg bg-gray-100 px-2 py-1 text-sm text-gray-600 hover:bg-rose-100 ${category === c ? 'bg-rose-100 font-bold' : ''}`}
-          href={`/notes-next/${c}`}
+          href={`/notes/${c}`}
         >
           {categoriesMeta[c]}
         </a>
