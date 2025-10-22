@@ -4,9 +4,12 @@ const headings = Astro.props.headings
 
 <div class="fixed top-20 left-8 max-xl:hidden">
   <!-- 始终显示的图标 -->
-  <div id="toc-toggle" class="cursor-pointer rounded p-1 opacity-60 transition-all duration-300 hover:opacity-100">
+  <div
+    id="toc-toggle"
+    class="cursor-pointer rounded p-1 opacity-60 transition-all duration-300 hover:bg-gray-200 hover:opacity-100 dark:hover:bg-gray-700"
+  >
     <svg
-      class="text-secondary h-5 w-5"
+      class="text-secondary h-6 w-6"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -19,7 +22,7 @@ const headings = Astro.props.headings
   <!-- 可折叠的目录内容 -->
   <div
     id="post-toc"
-    class="mt-2 max-h-[calc(95vh-8rem)] w-56 translate-x-[-10px] overflow-y-auto pl-3 text-sm opacity-0 transition-all duration-300 ease-in-out"
+    class="mt-2 max-h-[calc(95vh-8rem)] w-56 translate-x-[-8px] overflow-y-auto pl-3 text-sm opacity-0"
   >
     <div class="space-y-1">
       {
@@ -27,7 +30,7 @@ const headings = Astro.props.headings
           <div class={`${heading.depth === 2 ? 'font-medium' : 'ml-4'}`}>
             <a
               href={`#${heading.slug}`}
-              class="block py-1 text-xs break-words whitespace-normal underline-offset-4 opacity-80 transition-all duration-200 hover:pl-1 hover:underline hover:opacity-100"
+              class="block py-0 text-sm break-words whitespace-normal underline-offset-4 opacity-80 transition-all duration-250 hover:pl-0.5 hover:underline hover:opacity-100"
             >
               {heading.text}
             </a>
@@ -39,18 +42,26 @@ const headings = Astro.props.headings
 </div>
 
 <style>
+  /* 定义目录内容的过渡效果 */
+  #post-toc {
+    transition:
+      opacity 0.3s ease-in-out,
+      transform 0.3s ease-in-out;
+  }
+
+  /* 显示状态 */
   .toc-visible #post-toc {
     opacity: 1;
     transform: translateX(0);
   }
 
+  /* 图标在显示状态下的样式 */
   .toc-visible #toc-toggle {
     opacity: 1;
   }
 </style>
 
 <script>
-  let tocTimeout
   const container = document.querySelector('.fixed.top-20.left-8')
   const tocElement = document.getElementById('post-toc')
   const tocToggle = document.getElementById('toc-toggle')
@@ -59,14 +70,11 @@ const headings = Astro.props.headings
   const footer = document.querySelector('footer')
 
   function showToc() {
-    clearTimeout(tocTimeout)
     container?.classList.add('toc-visible')
   }
 
   function hideToc() {
-    tocTimeout = setTimeout(() => {
-      container?.classList.remove('toc-visible')
-    }, 300)
+    container?.classList.remove('toc-visible')
   }
 
   // 添加事件监听器
