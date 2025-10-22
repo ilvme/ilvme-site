@@ -22,7 +22,7 @@ const { Content, headings } = await render(post)
 <MdLayout frontmatter={{ comment: true, ...post.data }} headings={headings}>
   <Content />
 
-  <hr />
+  <hr class="dark:border-gray-600" />
   <div class="mt-6 flex justify-between gap-20" slot="post-after">
     <div class="max-w-[40%]">
       {

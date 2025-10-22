@@ -2,22 +2,95 @@
 const headings = Astro.props.headings
 ---
 
-<div
-  class="text-secondary fixed top-20 left-8 max-h-[calc(95vh-8rem)] w-56 overflow-y-auto border-l border-gray-300 pl-3 text-sm max-xl:hidden dark:border-gray-600"
->
-  <div class="mb-2 text-base font-semibold">目录</div>
-  <div class="space-y-1">
-    {
-      headings.map((heading) => (
-        <div class={`${heading.depth === 2 ? 'font-medium' : 'ml-4'}`}>
-          <a
-            href={`#${heading.slug}`}
-            class="block py-1 text-xs break-words whitespace-normal underline-offset-4 opacity-80 transition-opacity duration-200 hover:underline hover:opacity-100"
-          >
-            {heading.text}
-          </a>
-        </div>
-      ))
-    }
+<div class="fixed top-20 left-8 max-xl:hidden">
+  <!-- 始终显示的图标 -->
+  <div id="toc-toggle" class="cursor-pointer rounded p-1 opacity-60 transition-all duration-300 hover:opacity-100">
+    <svg
+      class="text-secondary h-5 w-5"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"></path>
+    </svg>
+  </div>
+
+  <!-- 可折叠的目录内容 -->
+  <div
+    id="post-toc"
+    class="mt-2 max-h-[calc(95vh-8rem)] w-56 translate-x-[-10px] overflow-y-auto pl-3 text-sm opacity-0 transition-all duration-300 ease-in-out"
+  >
+    <div class="space-y-1">
+      {
+        headings.map((heading) => (
+          <div class={`${heading.depth === 2 ? 'font-medium' : 'ml-4'}`}>
+            <a
+              href={`#${heading.slug}`}
+              class="block py-1 text-xs break-words whitespace-normal underline-offset-4 opacity-80 transition-all duration-200 hover:pl-1 hover:underline hover:opacity-100"
+            >
+              {heading.text}
+            </a>
+          </div>
+        ))
+      }
+    </div>
   </div>
 </div>
+
+<style>
+  .toc-visible #post-toc {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .toc-visible #toc-toggle {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  let tocTimeout
+  const container = document.querySelector('.fixed.top-20.left-8')
+  const tocElement = document.getElementById('post-toc')
+  const tocToggle = document.getElementById('toc-toggle')
+  const mainContent = document.querySelector('main')
+  const header = document.querySelector('header')
+  const footer = document.querySelector('footer')
+
+  function showToc() {
+    clearTimeout(tocTimeout)
+    container?.classList.add('toc-visible')
+  }
+
+  function hideToc() {
+    tocTimeout = setTimeout(() => {
+      container?.classList.remove('toc-visible')
+    }, 300)
+  }
+
+  // 添加事件监听器
+  const areas = [mainContent, header, footer, tocElement, tocToggle]
+  areas.forEach((area) => {
+    if (area) {
+      area.addEventListener('mouseenter', showToc)
+      area.addEventListener('mouseleave', hideToc)
+    }
+  })
+
+  // 添加对目录下方区域的监听
+  document.addEventListener('mousemove', (e) => {
+    const tocRect = container?.getBoundingClientRect()
+    if (tocRect) {
+      // 检查鼠标是否在目录区域或其下方区域
+      if (e.clientX >= tocRect.left - 20 && e.clientX <= tocRect.right + 20 && e.clientY >= tocRect.top - 20) {
+        showToc()
+      }
+    }
+  })
+
+  // 初始状态：隐藏目录内容，只显示图标
+  document.addEventListener('DOMContentLoaded', () => {
+    container?.classList.remove('toc-visible')
+  })
+</script>
