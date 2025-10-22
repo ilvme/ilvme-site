@@ -1,5 +1,5 @@
 ---
-title: 假如项目里的一些按钮功能需要进行密码二次确认（旧版，基于 Vue3）
+title: 假如项目里的一些按钮功能需要进行密码二次确认（新版，基于 Vue3）
 type: Post
 slug: 'er-ci-mi-ma-que-ren-vue3'
 status: published
