@@ -1,7 +1,7 @@
 ---
 title: 假如项目里的一些按钮功能需要进行密码二次确认（旧版，基于 Vue2）
 type: Post
-slug: 'er-ci-mi-ma-que-ren-vue2'
+slug: er-ci-mi-ma-que-ren-vue2
 status: published
 date: 2025-05-03
 category: FrontEnd

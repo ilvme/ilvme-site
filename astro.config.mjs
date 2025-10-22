@@ -7,9 +7,6 @@ import mdx from '@astrojs/mdx'
 export default defineConfig({
   site: 'https://ikangjia.cn',
 
-  // output: 'static',
-  // integrations: [],
-
   server: {
     port: 4321,
   },
@@ -19,7 +16,6 @@ export default defineConfig({
   markdown: {
     shikiConfig: {
       theme: 'github-dark',
-      // theme: 'vitesse-black',
     },
   },
 

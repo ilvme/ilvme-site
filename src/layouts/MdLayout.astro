@@ -12,14 +12,14 @@ const { frontmatter, headings } = Astro.props
 <BaseLayout title={frontmatter.title} description={frontmatter.description}>
   <!-- 标题 -->
   <PageHero title={frontmatter.title}>
-    <span class="text-secondary mr-2 font-mono text-sm">{formatDate(frontmatter.date)}</span>
-
+    <span class="text-secondary mr-2 text-sm">{formatDate(frontmatter.date)}</span>
     {frontmatter.tags.map((tag: string) => <TagLite tag={tag} />)}
   </PageHero>
 
   <!-- 正文 -->
   <slot />
 
+  <!-- 文章后续内容 -->
   <slot name="post-after" />
 
   <!-- 评论 -->
