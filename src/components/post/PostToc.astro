@@ -4,10 +4,7 @@ const headings = Astro.props.headings
 
 <div class="fixed top-20 left-8 max-xl:hidden">
   <!-- 始终显示的图标 -->
-  <div
-    id="toc-toggle"
-    class="cursor-pointer rounded p-1 opacity-60 transition-all duration-300 hover:bg-gray-200 hover:opacity-100 dark:hover:bg-gray-700"
-  >
+  <div id="toc-toggle" class="rounded p-1 opacity-60 transition-all duration-300 hover:opacity-100">
     <svg
       class="text-secondary h-6 w-6"
       fill="none"
@@ -45,8 +42,8 @@ const headings = Astro.props.headings
   /* 定义目录内容的过渡效果 */
   #post-toc {
     transition:
-      opacity 0.3s ease-in-out,
-      transform 0.3s ease-in-out;
+      opacity 0.6s ease-in-out,
+      transform 0.6s ease-in-out;
   }
 
   /* 显示状态 */
@@ -78,7 +75,7 @@ const headings = Astro.props.headings
   }
 
   // 添加事件监听器
-  const areas = [mainContent, header, footer, tocElement, tocToggle]
+  const areas = [mainContent, /*header,  footer,*/ tocElement, tocToggle]
   areas.forEach((area) => {
     if (area) {
       area.addEventListener('mouseenter', showToc)
