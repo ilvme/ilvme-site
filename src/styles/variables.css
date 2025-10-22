@@ -4,10 +4,14 @@
   --bg-color: #fff;
   --text-color: #222;
   --text-color-secondary: #555;
+
+  --bg-color-thing: #f5f3f3;
 }
 
 .dark {
   --bg-color: #181818;
   --text-color: #cdcdcd;
   --text-color-secondary: #aaa;
+
+  --bg-color-thing: #c7c5c5;
 }
