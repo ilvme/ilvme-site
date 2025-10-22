@@ -2,18 +2,89 @@
 
 ---
 
-<script
-  src="https://giscus.app/client.js"
-  data-repo="ilvme/site-comments"
-  data-repo-id="R_kgDOQGPClw"
-  data-category="Announcements"
-  data-category-id="DIC_kwDOQGPCl84Cw4yK"
-  data-mapping="pathname"
-  data-strict="0"
-  data-reactions-enabled="1"
-  data-emit-metadata="0"
-  data-input-position="top"
-  data-theme="preferred_color_scheme"
-  data-lang="zh-CN"
-  crossorigin="anonymous"
-  async></script>
+<div class="card-base onload-animation mb-4 w-full p-6 md:p-8">
+  <div id="giscus-container" style="width: 100%">
+    <!-- 在这里我们将动态插入 Giscus 脚本 -->
+  </div>
+</div>
+
+<script is:inline>
+  // 立即执行函数，确保尽早运行
+  ;(function () {
+    // 检测当前主题模式并返回对应的 Giscus 主题
+    function getGiscusTheme() {
+      return document.documentElement.classList.contains('dark') ? 'noborder_gray' : 'noborder_light'
+    }
+
+    // 创建并插入 Giscus 脚本
+    function createGiscusScript() {
+      const theme = getGiscusTheme()
+      const script = document.createElement('script')
+
+      script.src = 'https://giscus.app/client.js'
+      script.setAttribute('data-repo', 'ilvme/site-comments')
+      script.setAttribute('data-repo-id', 'R_kgDOQGPClw')
+      script.setAttribute('data-category', 'Announcements')
+      script.setAttribute('data-category-id', 'DIC_kwDOQGPCl84Cw4yK')
+      script.setAttribute('data-mapping', 'pathname')
+      script.setAttribute('data-strict', '0')
+      script.setAttribute('data-reactions-enabled', '1')
+      script.setAttribute('data-emit-metadata', '0')
+      script.setAttribute('data-input-position', 'top')
+      script.setAttribute('data-theme', theme)
+      script.setAttribute('data-lang', 'zh-CN')
+      script.setAttribute('data-loading', 'lazy')
+      script.setAttribute('crossorigin', 'anonymous')
+      script.async = true
+
+      return script
+    }
+
+    // 监听主题变化
+    function setupThemeObserver() {
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.attributeName === 'class' && mutation.target === document.documentElement) {
+            updateGiscusTheme()
+          }
+        })
+      })
+
+      observer.observe(document.documentElement, { attributes: true })
+    }
+
+    // 更新 Giscus 主题
+    function updateGiscusTheme() {
+      const theme = getGiscusTheme()
+
+      const iframe = document.querySelector('iframe.giscus-frame')
+      if (iframe && 'contentWindow' in iframe) {
+        iframe.contentWindow.postMessage({ giscus: { setConfig: { theme } } }, 'https://giscus.app')
+      }
+    }
+
+    // 初始化 Giscus
+    function initGiscus() {
+      const container = document.getElementById('giscus-container')
+      if (container) {
+        // 清空容器（防止重复加载）
+        container.innerHTML = ''
+        // 添加脚本
+        container.appendChild(createGiscusScript())
+        // 设置主题观察器
+        setupThemeObserver()
+      }
+    }
+
+    // 尝试立即加载
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initGiscus)
+    } else {
+      // 如果 DOM 已经加载完成，立即执行
+      initGiscus()
+    }
+
+    // 确保在页面完全加载后也能正常初始化（双重保险）
+    window.addEventListener('load', initGiscus)
+  })()
+</script>

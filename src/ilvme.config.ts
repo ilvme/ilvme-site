@@ -12,7 +12,8 @@ const SiteConfig = {
 
   themeConfig: {
     pageSize: 7,
-    comment: !import.meta.env.DEV, // 评论功能，特定文章想关闭评论功能，请在对应文章的 front matter 中添加 `comment: false`
+    comment: true, // 评论功能，特定文章想关闭评论功能，请在对应文章的 front matter 中添加 `comment: false`
+    toc: true, // 是否显示文章目录，默认为 true。特定文章想关闭目录功能，请在对应文章的 front matter 中添加 `toc: false`
   },
 
   // 说说抓取间隔，单位：秒，低于5分钟，设置无效！！

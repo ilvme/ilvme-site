@@ -4,9 +4,8 @@ import { formatDate } from '../libs/support'
 import PostToc from '../components/post/PostToc.astro'
 import PageHero from '../components/post/PageHero.astro'
 import TagLite from '../components/post/TagLite.astro'
-import Prose from '../components/post/Prose.astro'
-import GiscusComment from '../components/post/GiscusComment.astro'
 import SiteConfig from '../ilvme.config'
+import GiscusComment from '../components/post/GiscusComment.astro'
 const { frontmatter, headings } = Astro.props
 ---
 
@@ -24,16 +23,10 @@ const { frontmatter, headings } = Astro.props
   <slot name="post-after" />
 
   <!-- 评论 -->
-  {
-    SiteConfig.themeConfig.comment && frontmatter.comment && (
-      <div class="comment-section">
-        <GiscusComment />
-      </div>
-    )
-  }
+  {SiteConfig.themeConfig.comment && frontmatter.comment && <GiscusComment />}
 
   <!-- 目录 -->
-  {headings.length > 0 && <PostToc headings={headings} />}
+  {SiteConfig.themeConfig.toc && frontmatter.toc && headings.length > 0 && <PostToc headings={headings} />}
 </BaseLayout>
 
 <!-- 在你的 Markdown 布局组件（如 MarkdownLayout.astro）中添加脚本 -->
