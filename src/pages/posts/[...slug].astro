@@ -2,6 +2,7 @@
 import { render } from 'astro:content'
 import MdLayout from '../../layouts/MdLayout.astro'
 import { getAllPosts } from '../../libs/content-loader'
+import Prose from '../../components/post/Prose.astro'
 
 export async function getStaticPaths() {
   const posts = await getAllPosts()
@@ -20,10 +21,11 @@ const { Content, headings } = await render(post)
 ---
 
 <MdLayout frontmatter={{ comment: true, ...post.data }} headings={headings}>
-  <Content />
+  <Prose><Content /> </Prose>
 
-  <hr class="dark:border-gray-600" />
-  <div class="mt-6 flex justify-between gap-20" slot="post-after">
+  <hr class="mt-6 mb-6 border-gray-300 dark:border-gray-600" />
+
+  <div class="mb-6 flex justify-between gap-20" slot="post-after">
     <div class="max-w-[40%]">
       {
         prevPost && (

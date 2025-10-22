@@ -19,7 +19,7 @@ const { frontmatter, headings } = Astro.props
   </PageHero>
 
   <!-- 正文 -->
-  <Prose><slot /> </Prose>
+  <slot />
 
   <slot name="post-after" />
 

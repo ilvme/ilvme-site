@@ -20,13 +20,15 @@ const { title = SiteConfig.title, description = SiteConfig.description, icon } =
     <title>{title}</title>
   </head>
   <body>
-    <main class="m-auto max-w-[768px] px-5 pt-6">
+    <div class="m-auto max-w-[768px] px-5 pt-6">
       <Header />
 
-      <slot />
+      <main>
+        <slot />
+      </main>
 
       <Footer />
       <BackToTop />
-    </main>
+    </div>
   </body>
 </html>
