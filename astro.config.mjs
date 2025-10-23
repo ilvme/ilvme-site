@@ -11,7 +11,14 @@ export default defineConfig({
     port: 4321,
   },
 
-  vite: { plugins: [tailwindcss()] },
+  vite: {
+    // resolve: {
+    //   alias: {
+    //     '@': new URL('./src', import.meta.url).pathname,
+    //   },
+    // },
+    plugins: [tailwindcss()],
+  },
 
   markdown: {
     shikiConfig: {
