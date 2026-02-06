@@ -9,3 +9,22 @@ import Prose from '@/components/post/Prose.astro'
     <Content />
   </Prose>
 </BaseLayout>
+<script>
+  import '../libs/couplet'
+
+  // 获取当前日期
+  const now = new Date()
+  const year = now.getFullYear()
+  const month = now.getMonth() + 1 // 月份从0开始，所以需要+1
+
+  // 判断是否为2026年且月份大于2月
+  if (year === 2026 && month > 2) {
+    // 自动隐藏couplet组件
+    document.addEventListener('DOMContentLoaded', () => {
+      const coupletElements = document.querySelectorAll('.couplet') // 假设couplet组件有一个class名为'couplet'
+      if (coupletElements) {
+        coupletElements.forEach((element) => (element.style.display = 'none'))
+      }
+    })
+  }
+</script>
