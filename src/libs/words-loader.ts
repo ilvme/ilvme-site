@@ -25,9 +25,20 @@ export async function fetchAllWords(): Promise<Word[]> {
 
 // 获取所有发布的说说
 async function listWords(databaseId: string): Promise<Word[]> {
-  const allPages = await listAllPages(databaseId, {
-    sorts: [{ property: 'PublishAt', direction: 'descending' }],
-  })
+  let allPages: any[] = []
+
+  const wordsCount = SiteConfig.words_fetch_count
+
+  if (wordsCount > 0) {
+    allPages = await listAllPagesWithCount(databaseId, {
+      sorts: [{ property: 'PublishAt', direction: 'descending' }],
+      pageSize: SiteConfig.words_fetch_count,
+    })
+  } else if (wordsCount === -1) {
+    allPages = await listAllPages(databaseId, {
+      sorts: [{ property: 'PublishAt', direction: 'descending' }],
+    })
+  }
 
   return allPages.map((item) => {
     return {
@@ -39,6 +50,31 @@ async function listWords(databaseId: string): Promise<Word[]> {
       // content: item.properties.Title.title[0]?.plain_text || '这条说说内容去火星啦~',
     }
   })
+}
+
+// 获取指定数据库下指定数量的页面
+async function listAllPagesWithCount(databaseId: string, options?: { filter?: any; sorts?: any; pageSize?: number }) {
+  try {
+    const allPages = []
+    let nextCursor: string | undefined
+    const response = await notion.databases.query({
+      database_id: databaseId,
+      page_size: options?.pageSize || 100,
+      start_cursor: nextCursor,
+      filter: options?.filter,
+      sorts: options?.sorts,
+    })
+
+    // console.log('原始数据', response)
+
+    allPages.push(...response.results)
+
+    console.log(`获取所有页面完成，总数：${allPages.length}`)
+    return allPages
+  } catch (error) {
+    console.error('Error fetching all pages:', error)
+    throw error
+  }
 }
 
 // 获取指定数据库下所有页面，支持自定义查询参数

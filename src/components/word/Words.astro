@@ -3,6 +3,7 @@ import { formatPast } from '../../libs/support'
 import WordCard from './WordCard.astro'
 import { fetchAllWords } from '../../libs/words-loader'
 import type { Word } from '../../../scripts/archiving/types'
+import SiteConfig from '../../ilvme.config'
 
 const words: Word[] = await fetchAllWords()
 ---
@@ -12,7 +13,12 @@ const words: Word[] = await fetchAllWords()
 </div>
 
 <p class="text-secondary text-right text-xs">
-  <span>累积 {words.length} 条说说。</span>
-  <span>第一条说说发布于 {formatPast(words[words.length - 1]?.time)}。 </span>
+  {
+    SiteConfig.words_fetch_count === -1 ?
+        <span>累积 {words.length} 条说说。</span>
+        <span>第一条说说发布于 {formatPast(words[words.length - 1]?.time)}。 </span>
+      :
+      <span>仅获取最新 {SiteConfig.words_fetch_count} 条说说。</span>
+  }
   <span>最近一条发布于 {formatPast(words[0].time)}。</span>
 </p>

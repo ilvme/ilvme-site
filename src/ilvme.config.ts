@@ -19,6 +19,7 @@ const SiteConfig = {
   // 说说抓取间隔，单位：秒，低于5分钟，设置无效！！
   // 不要设置过短，否则会触发 notion 的 API 频率限制
   words_fetch_interval: 60 * 60,
+  words_fetch_count: 30, // 获取的说说数量，默认 30，如设置为 -1，则获取所有
 }
 
 export default SiteConfig
